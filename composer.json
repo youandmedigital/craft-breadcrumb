@@ -1,0 +1,43 @@
+{
+    "name": "youandmedigital/breadcrumb",
+    "description": "tbc",
+    "type": "craft-plugin",
+    "version": "0.0.1",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "breadcrumb"
+    ],
+    "support": {
+        "docs": "https://github.com/youandmedigital/breadcrumb/blob/master/README.md",
+        "issues": "https://github.com/youandmedigital/breadcrumb/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "You & Me Digital",
+            "homepage": "https://youandme.digital"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "youandmedigital\\breadcrumb\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Breadcrumb",
+        "handle": "breadcrumb",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/youandmedigital/breadcrumb/master/CHANGELOG.md",
+        "components": {
+            "breadcrumbService": "youandmedigital\\breadcrumb\\services\\BreadcrumbService"
+        },
+        "class": "youandmedigital\\breadcrumb\\Breadcrumb"
+    }
+}
