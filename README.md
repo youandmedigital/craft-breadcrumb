@@ -28,7 +28,16 @@ To install the plugin, follow these instructions.
 
 ## Configuring Breadcrumb
 
--Insert text here-
+```
+{% set settings =
+    {
+        homeTitle: 'Home',
+        homeUrl: 'https://google.com',
+        skipUrl: 1
+    }
+%}
+{% set breadcrumb = craft.breadcrumb.config(settings) %}
+```
 
 ## Using Breadcrumb
 
