@@ -33,7 +33,7 @@ To install the plugin, follow these instructions.
     {
         homeTitle: 'Home',
         homeUrl: 'https://google.com',
-        skipUrl: 1
+        skipUrlSegment: 1
     }
 %}
 {% set breadcrumb = craft.breadcrumb.config(settings) %}

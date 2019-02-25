@@ -39,7 +39,7 @@ class BreadcrumbService extends Component
         // get and set settings array
         $homeTitle = isset($settings['homeTitle']) ? $settings['homeTitle'] : 'Home';
         $homeUrl = isset($settings['homeUrl']) ? $settings['homeUrl'] : null;
-        $skipUrl = isset($settings['skipUrl']) ? $settings['skipUrl'] : null;
+        $skipUrlSegment = isset($settings['$skipUrlSegment']) ? $settings['$skipUrlSegment'] : null;
 
         // get each segment in the given URL
         $urlArray = Craft::$app->request->getSegments();
@@ -70,8 +70,8 @@ class BreadcrumbService extends Component
         $breadcrumbArray = array_merge($homeArray, $output);
 
         // Remove item from array
-        if ($skipUrl) {
-            $index = $skipUrl - 1 ;
+        if ($skipUrlSegment) {
+            $index = $skipUrlSegment - 1 ;
             unset($breadcrumbArray[$index]);
         }
 
