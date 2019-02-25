@@ -38,6 +38,28 @@ To install the plugin, follow these instructions.
 %}
 {% set breadcrumb = craft.breadcrumb.config(settings) %}
 ```
+```
+{% if breadcrumb %}
+<div class="c-breadcrumb">
+    <ol class="c-breadcrumb__items">
+        {% for crumb in breadcrumb  %}
+            {% if loop.last %}
+            <li class="c-breadcrumb__item">
+                <span>{{ crumb.title }}</span>
+            </li>
+            {% else %}
+            <li class="c-breadcrumb__item">
+                <a class="c-breadcrumb__link" href="{{ crumb.url }}">
+                    <span>{{ crumb.title }}</span>
+                </a>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ol>
+</div>
+{% endif %}
+
+```
 
 ## Using Breadcrumb
 
