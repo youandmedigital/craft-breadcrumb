@@ -60,7 +60,7 @@ class BreadcrumbService extends Component
 
         }
 
-        // reset baseURL for custom URL
+        // reset baseURL for custom home URL
         if ($homeUrl) {
             $baseUrl = $homeUrl;
         }
