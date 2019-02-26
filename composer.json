@@ -1,6 +1,6 @@
 {
     "name": "youandmedigital/breadcrumb",
-    "description": "tbc",
+    "description": " Build a breadcrumb trail based on your current URL",
     "type": "craft-plugin",
     "version": "0.0.1",
     "keywords": [
@@ -8,7 +8,8 @@
         "cms",
         "craftcms",
         "craft-plugin",
-        "breadcrumb"
+        "breadcrumb",
+        "navigation"
     ],
     "support": {
         "docs": "https://github.com/youandmedigital/breadcrumb/blob/master/README.md",

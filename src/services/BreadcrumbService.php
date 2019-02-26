@@ -2,7 +2,7 @@
 /**
  * Breadcrumb plugin for Craft CMS 3.x
  *
- * A simple plugin that builds a breadcrumb trail based on your URL
+ * Build a breadcrumb trail based on your current URL
  *
  * @link      https://youandme.digital
  * @copyright Copyright (c) 2019 You & Me Digital
@@ -61,30 +61,30 @@ class BreadcrumbService extends Component
 
         }
 
-        // Reset baseURL for custom URL
+        // reset baseURL for custom URL
         if ($homeUrl) {
             $baseUrl = $homeUrl;
         }
 
-        // Create array for the home crumb...
+        // create array for the home crumb...
         $homeArray[] = array('title' => $homeTitle, 'url' => $baseUrl);
-        // Merge home crumb with the original output
+        // merge home crumb with the original output
         $breadcrumbArray = array_merge($homeArray, $output);
 
-        // Add position key/value to breadcrumbArray
+        // add position key/value to breadcrumbArray
         foreach($breadcrumbArray as $position => &$val){
             $val['position'] = $defaultPosition++;
         }
 
-        // Remove item from array
+        // remove item from array
         if ($skipUrlSegment) {
             $index = $skipUrlSegment - 1 ;
             unset($breadcrumbArray[$index]);
         }
 
-        // If entry is an Entry, Category or Tag element
-        // And id is not 0
-        // And customFieldHandle is not null
+        // if entry is an Entry, Category or Tag element
+        // and id is not 0
+        // and customFieldHandle is not null
         if (
             ($elementType = 'craft\elements\Entry') ||
             ($elementType = 'craft\elements\Category') ||
@@ -92,26 +92,26 @@ class BreadcrumbService extends Component
             ($id != 0) &&
             (!empty($customFieldHandle))
         ) {
-            // Get entry model based on id
+            // get entry model based on id
             $element = Entry::find()->id($id)->one();
 
-            // Make sure the element has a custom field
+            // make sure the element has a custom field
             if (!empty($element->$customFieldHandle)) {
 
-                // Set title from custom field in element model
+                // set title from custom field in element model
                 $title = $element->$customFieldHandle;
 
-                // Move internal pointer to the end of the array
+                // move internal pointer to the end of the array
                 end($breadcrumbArray);
-                // Fetch last key in array...
+                // fetch last key in array...
                 $key = key($breadcrumbArray);
-                // Set new value...
+                // set new value...
                 $breadcrumbArray[$key]['title'] = $title;
             }
 
         }
 
-        // Return output
+        // return output
         return $breadcrumbArray;
     }
 }
