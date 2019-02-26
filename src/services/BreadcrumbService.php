@@ -77,14 +77,14 @@ class BreadcrumbService extends Component
             $val['position'] = $defaultPosition++;
         }
 
-        // remove item from array
+        // remove segment from array
         if ($skipUrlSegment) {
             $index = $skipUrlSegment - 1 ;
             unset($breadcrumbArray[$index]);
         }
 
         // if entry is an Entry, Category or Tag element
-        // and id is not 0
+        // and customFieldHandleEntryId is not 0
         // and customFieldHandle is not null
         if (
             ($elementType = 'craft\elements\Entry') ||
