@@ -22,7 +22,7 @@ To install the plugin, follow these instructions.
 
 ## Breadcrumb Overview
 
-Generate a simple breadcrumb trail from the segments in your website URL. It is perfect for websites that have descriptive and meaningful URL's.
+Generate a simple breadcrumb based on the segments in your URL. It is perfect for websites that have descriptive and meaningful URL's.
 
 No need to setup a breadcrumb for sections and another for categories or even tags.
 
@@ -56,7 +56,7 @@ array (size=4)
       'position' => int 4
 ```
 
-With this array, you can template it with the power of Twig. Here's a basic example:
+With this array, you can now use Twig to define the look and apply additional logic. Here's a basic example:
 
 ```
 {% set breadcrumb = craft.breadcrumb.config %}
@@ -83,8 +83,6 @@ With this array, you can template it with the power of Twig. Here's a basic exam
 ```
 
 ## Configuring Breadcrumb
-
-You can use Twig to work magic on the Breadcrumb array, but Breadcrumb also comes with these settings:
 
 ```
 {# If entry variable is empty, try category, tag and finally return null #}
