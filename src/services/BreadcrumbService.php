@@ -50,12 +50,12 @@ class BreadcrumbService extends Component
         // set default position key
         $defaultPosition = 1;
 
-        // for each segment array as currentSlug
-        foreach ($urlArray as $currentSlug) {
+        // for each segment in array
+        foreach ($urlArray as $segment) {
 
-            // build path from current slug
-            $path .= '/' . $currentSlug;
-            $title = ucwords(str_replace(array('-', '_'), ' ', $currentSlug));
+            // build path from current segment
+            $path .= '/' . $segment;
+            $title = ucwords(str_replace(array('-', '_'), ' ', $segment));
 
             // output new array and asign title and build url
             $output[] = array('title' => $title, 'url' => $baseUrl . $path );
