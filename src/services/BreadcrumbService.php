@@ -99,15 +99,12 @@ class BreadcrumbService extends Component
             // make sure the element has a custom field
             if (!empty($element->$customFieldHandle)) {
 
-                // set title from custom field in element model
-                $title = $element->$customFieldHandle;
-
                 // move internal pointer to the end of the array
                 end($breadcrumbArray);
                 // fetch last key in array...
                 $key = key($breadcrumbArray);
                 // set new value...
-                $breadcrumbArray[$key]['title'] = $title;
+                $breadcrumbArray[$key]['title'] = $element->$customFieldHandle;
             }
 
         }
