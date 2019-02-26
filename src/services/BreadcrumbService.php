@@ -33,7 +33,7 @@ class BreadcrumbService extends Component
         $homeTitle = isset($settings['homeTitle']) ? $settings['homeTitle'] : 'Home';
         $homeUrl = isset($settings['homeUrl']) ? $settings['homeUrl'] : null;
         $skipUrlSegment = isset($settings['skipUrlSegment']) ? $settings['skipUrlSegment'] : null;
-        $id = isset($settings['id']) ? $settings['id'] : 0;
+        $customFieldHandleEntryId = isset($settings['customFieldHandleEntryId']) ? $settings['customFieldHandleEntryId'] : 0;
         $customFieldHandle = isset($settings['customFieldHandle']) ? $settings['customFieldHandle'] : null;
 
         // get each segment in the given URL
@@ -41,7 +41,7 @@ class BreadcrumbService extends Component
         // get sites base url
         $baseUrl = Craft::getAlias('@baseUrl');
         // get element type
-        $elementType = Craft::$app->elements->getElementTypeById($id);
+        $elementType = Craft::$app->elements->getElementTypeById($customFieldHandleEntryId);
 
         // set path to empty
         $path = '';
@@ -88,7 +88,7 @@ class BreadcrumbService extends Component
             ($elementType = 'craft\elements\Entry') ||
             ($elementType = 'craft\elements\Category') ||
             ($elementType = 'craft\elements\Tag') &&
-            ($id != 0) &&
+            ($customFieldHandleEntryId != 0) &&
             (!empty($customFieldHandle))
         ) {
             // get entry model based on id
