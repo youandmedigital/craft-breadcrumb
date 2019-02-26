@@ -42,6 +42,8 @@ class BreadcrumbService extends Component
 
         // set path to empty
         $path = '';
+        // set default position key
+        $defaultPosition = 1;
 
         // for each segment array as currentSlug
         foreach ($urlArray as $currentSlug) {
@@ -51,7 +53,7 @@ class BreadcrumbService extends Component
             $title = ucwords(str_replace(array('-', '_'), ' ', $currentSlug));
 
             // output new array and asign title and build url
-            $output[] = array('title' => $title, 'url' => $baseUrl . $path);
+            $output[] = array('title' => $title, 'url' => $baseUrl . $path );
 
         }
 
@@ -64,6 +66,11 @@ class BreadcrumbService extends Component
         $homeArray[] = array('title' => $homeTitle, 'url' => $baseUrl);
         // Merge home crumb with the original output
         $breadcrumbArray = array_merge($homeArray, $output);
+
+        // Add position key/value to breadcrumbArray
+        foreach($breadcrumbArray as $position => &$val){
+            $val['position'] = $defaultPosition++;
+        }
 
         // Remove item from array
         if ($skipUrlSegment) {
