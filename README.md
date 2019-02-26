@@ -28,7 +28,7 @@ There is no need to worry about setting up a breadcrumb for sections and another
 
 For example, if you setup a Breadcrumb and your website URL looks like this:
 ```
-https://mysite.dev/posts/categories/example-category
+https://mysite.local/posts/categories/example-category
 ```
 
 Breadcrumb would automatically generate the following array for you to template with Twig:
@@ -37,22 +37,22 @@ array (size=4)
   0 =>
     array (size=3)
       'title' => string 'Home' (length=4)
-      'url' => string 'https://mysite.dev' (length=18)
+      'url' => string 'https://mysite.local' (length=18)
       'position' => int 1
   1 =>
     array (size=3)
       'title' => string 'Posts' (length=5)
-      'url' => string 'https://mysite.dev/posts' (length=24)
+      'url' => string 'https://mysite.local/posts' (length=24)
       'position' => int 2
   2 =>
     array (size=3)
       'title' => string 'Categories' (length=10)
-      'url' => string 'https://mysite.dev/posts/categories' (length=35)
+      'url' => string 'https://mysite.local/posts/categories' (length=35)
       'position' => int 3
   3 =>
     array (size=3)
       'title' => string 'Example Category' (length=11)
-      'url' => string 'https://mysite.dev/posts/categories/example-category' (length=52)
+      'url' => string 'https://mysite.local/posts/categories/example-category' (length=52)
       'position' => int 4
 ```
 
@@ -95,7 +95,7 @@ You can use Twig to work magic on the Breadcrumb array, but Breadcrumb also come
 {% set settings =
     {
         homeTitle: 'Home',
-        homeUrl: 'https://google.com',
+        homeUrl: 'https://example.com',
         skipUrlSegment: 1,
         customFieldHandleEntryId: entry.id,
         customFieldHandle: 'myCustomField'
@@ -109,7 +109,7 @@ You can use Twig to work magic on the Breadcrumb array, but Breadcrumb also come
 
 - **homeUrl** `(string, optional, default '@baseUrl')`: This allows you to set a custom URL for the first item in the Breadcrumb
 
-- **skipUrlSegment** `(int, optional, default 'null')`: This allows you to remove a segment from the Breadcrumb array. For example, if you have the URL `https://mysite.dev/posts/categories/example-category` and want to remove `categories` from the Breadcrumb, you would enter `3` as a value. This would remove the 3rd segment from all URL's, so be careful!
+- **skipUrlSegment** `(int, optional, default 'null')`: This allows you to remove a segment from the Breadcrumb array. For example, if you have the URL `https://mysite.local/posts/categories/example-category` and want to remove `categories` from the Breadcrumb, you would enter `3` as a value. This would remove the 3rd segment from all URL's, so be careful!
 
 - **customFieldHandleEntryId** `(int, optional, default '0')`: Works with customFieldHandle. Nothing to customise here.
 
@@ -117,7 +117,9 @@ You can use Twig to work magic on the Breadcrumb array, but Breadcrumb also come
 
 ## Is Breadcrumb right for me?
 
-If you have a URL like `https://mysite.dev/posts/categories/example-category`, it will generate a Breadcrumb based on each segment in the URL. This means if you don't have a template or redirect setup for `https://mysite.dev/posts/categories` it will return a 404 when clicked from the Breadcrumb trail.
+If you have a URL like `https://mysite.local/posts/categories/example-category`, it will generate a Breadcrumb based on each segment in the URL. This means if you don't have a template or redirect setup for `https://mysite.local/posts/categories` it will return a 404 when clicked from the Breadcrumb trail.
+
+If you have a url that looks like `https://mysite.local/c/12/random/post-title`, Breadcrumb is not for you.
 
 If you need to pull in a custom field to generate each title, this is not possible. Titles are generated from the URL. You can customise the last url segment only.
 
