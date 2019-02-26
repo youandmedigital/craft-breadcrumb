@@ -2,7 +2,7 @@
 /**
  * Breadcrumb plugin for Craft CMS 3.x
  *
- * tbc
+ * A simple plugin that builds a breadcrumb trail based on your URL
  *
  * @link      https://youandme.digital
  * @copyright Copyright (c) 2019 You & Me Digital
@@ -17,12 +17,6 @@ use craft\base\Component;
 
 /**
  * BreadcrumbService Service
- *
- * All of your plugin’s business logic should go in services, including saving data,
- * retrieving data, etc. They provide APIs that your controllers, template variables,
- * and other plugins can interact with.
- *
- * https://craftcms.com/docs/plugins/services
  *
  * @author    You & Me Digital
  * @package   Breadcrumb
