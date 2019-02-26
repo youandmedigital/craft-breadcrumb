@@ -1,6 +1,6 @@
 {
     "name": "youandmedigital/breadcrumb",
-    "description": " Build a breadcrumb trail based on your current URL",
+    "description": "Generate a simple breadcrumb trail from the segments in your website URL",
     "type": "craft-plugin",
     "version": "0.0.1",
     "keywords": [
