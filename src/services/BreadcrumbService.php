@@ -66,7 +66,9 @@ class BreadcrumbService extends Component
             $baseUrl = $homeUrl;
         }
 
+        // Create array for the home crumb...
         $homeArray[] = array('title' => $homeTitle, 'url' => $baseUrl);
+        // Merge home crumb with the original output
         $breadcrumbArray = array_merge($homeArray, $output);
 
         // Remove item from array
@@ -75,6 +77,7 @@ class BreadcrumbService extends Component
             unset($breadcrumbArray[$index]);
         }
 
+        // Return output
         return $breadcrumbArray;
     }
 }
