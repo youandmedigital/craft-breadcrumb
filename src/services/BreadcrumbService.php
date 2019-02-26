@@ -11,6 +11,7 @@
 namespace youandmedigital\breadcrumb\services;
 
 use youandmedigital\breadcrumb\Breadcrumb;
+use craft\elements\Entry;
 
 use Craft;
 use craft\base\Component;
@@ -35,6 +36,7 @@ class BreadcrumbService extends Component
         $skipUrlSegment = isset($settings['skipUrlSegment']) ? $settings['skipUrlSegment'] : null;
         $customFieldHandleEntryId = isset($settings['customFieldHandleEntryId']) ? $settings['customFieldHandleEntryId'] : 0;
         $customFieldHandle = isset($settings['customFieldHandle']) ? $settings['customFieldHandle'] : null;
+        $limit = isset($settings['limit']) ? $settings['limit'] : null;
 
         // get each segment in the given URL
         $urlArray = Craft::$app->request->getSegments();
@@ -92,7 +94,7 @@ class BreadcrumbService extends Component
             (!empty($customFieldHandle))
         ) {
             // get entry model based on id
-            $element = Entry::find()->id($id)->one();
+            $element = Entry::find()->id($customFieldHandleEntryId)->one();
 
             // make sure the element has a custom field
             if (!empty($element->$customFieldHandle)) {
@@ -108,6 +110,11 @@ class BreadcrumbService extends Component
                 $breadcrumbArray[$key]['title'] = $title;
             }
 
+        }
+
+        // return the amount of results if set
+        if ($limit) {
+            return array_slice($breadcrumbArray, 0, $limit);
         }
 
         // return output
