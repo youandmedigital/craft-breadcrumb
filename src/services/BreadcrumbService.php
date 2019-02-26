@@ -109,7 +109,7 @@ class BreadcrumbService extends Component
 
         }
 
-        // return the amount of results if set
+        // limit and return the amount of results if set
         if ($limit) {
             return array_slice($breadcrumbArray, 0, $limit);
         }
