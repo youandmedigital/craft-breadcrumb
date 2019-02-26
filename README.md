@@ -1,7 +1,8 @@
 <p align="center">
     <img src="https://github.com/jonleverrier/craft-breadcrumb/blob/master/src/icon.svg" alt="Craft Breadcrumb" width="150"/>
 </p>
-## Breadcrumb plugin for Craft CMS 3.1
+
+# Breadcrumb plugin for Craft CMS 3.1
 
 Generate a simple breadcrumb based on the segments in your URL
 
