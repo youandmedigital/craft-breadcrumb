@@ -1,4 +1,4 @@
-# Breadcrumb plugin for Craft CMS 3.x
+# Breadcrumb plugin for Craft CMS 3.1
 
 Build a breadcrumb trail based on your current URL
 
@@ -105,15 +105,15 @@ You can use Twig to work magic on the Breadcrumb array, but Breadcrumb also come
 {# Settings array passed into the Breadcrumb config #}
 {% set breadcrumb = craft.breadcrumb.config(settings) %}
 ```
-- **homeTitle** (string, optional, default 'Home'): This allows you to customise the title of the first item in the Breadcrumb
+- **homeTitle** `(string, optional, default 'Home')`: This allows you to customise the title of the first item in the Breadcrumb
 
-- **homeUrl** (string, optional, default '@baseUrl'): This allows you to set a custom URL for the first item in the Breadcrumb
+- **homeUrl** `(string, optional, default '@baseUrl')`: This allows you to set a custom URL for the first item in the Breadcrumb
 
-- **skipUrlSegment** (int, optional, default 'null'): This allows you to remove a segment from the Breadcrumb array. For example, if you have the URL 'https://mysite.dev/posts/categories/example-category' and want to remove `categories` from the Breadcrumb, you would enter `3` as a value. This would remove the 3rd segment from all URL's, so be careful!
+- **skipUrlSegment** `(int, optional, default 'null')`: This allows you to remove a segment from the Breadcrumb array. For example, if you have the URL `https://mysite.dev/posts/categories/example-category` and want to remove `categories` from the Breadcrumb, you would enter `3` as a value. This would remove the 3rd segment from all URL's, so be careful!
 
-- **customFieldHandleEntryId** (int, optional, default '0'): Works with customFieldHandle. Nothing to customise here.
+- **customFieldHandleEntryId** `(int, optional, default '0')`: Works with customFieldHandle. Nothing to customise here.
 
-- **customFieldHandle** (string, optional, default 'null'): This allows you to specify a custom field that contains a custom title you want to appear in the Breadcrumb. This only works for the last item in the Breadcrumb. Requires customFieldHandleEntryId to work.
+- **customFieldHandle** `(string, optional, default 'null')`: This allows you to specify a custom field that contains a custom title you want to appear in the Breadcrumb. This only works for the last item in the Breadcrumb. Requires customFieldHandleEntryId to work.
 
 ## Is Breadcrumb right for me?
 
