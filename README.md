@@ -114,7 +114,7 @@ With this array, you can now use Twig to define the look and apply additional lo
 
 - **customFieldHandle** `(string, optional, default 'null')`: Specify a field that contains a custom title. This only works for the last item in the breadcrumb array. Requires customFieldHandleEntryId to work.
 
-- **limit** `(int, optional, default 'null')`: If set, will limit the amount of results returned in the Breadcrumb array.
+- **limit** `(int, optional, default 'null')`: Limit the amount of results returned in the Breadcrumb array.
 
 ## Is Breadcrumb right for me?
 
