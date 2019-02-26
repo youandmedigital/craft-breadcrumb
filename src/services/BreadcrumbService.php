@@ -83,7 +83,11 @@ class BreadcrumbService extends Component
         }
 
         // If entry is an Entry Element
-        if ( ($elementType == 'craft\elements\Entry') ) {
+        if (
+            ($elementType = 'craft\elements\Entry') &&
+            ($id != 0) &&
+            (!empty($customFieldHandle))
+        ) {
             // get entry model based on id
             $element = Entry::find()->id($id)->one();
             // set title from custom field in entry model
