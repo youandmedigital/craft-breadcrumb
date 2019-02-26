@@ -82,23 +82,32 @@ class BreadcrumbService extends Component
             unset($breadcrumbArray[$index]);
         }
 
-        // If entry is an Entry Element
+        // If entry is an Entry, Category or Tag element
+        // And id is not 0
+        // And customFieldHandle is not null
         if (
-            ($elementType = 'craft\elements\Entry') &&
+            ($elementType = 'craft\elements\Entry') ||
+            ($elementType = 'craft\elements\Category') ||
+            ($elementType = 'craft\elements\Tag') &&
             ($id != 0) &&
             (!empty($customFieldHandle))
         ) {
-            // get entry model based on id
+            // Get entry model based on id
             $element = Entry::find()->id($id)->one();
-            // set title from custom field in entry model
-            $title = $element->$customFieldHandle;
 
-            // Move internal pointer to the end of the array
-            end($breadcrumbArray);
-            // Fetch last key in array...
-            $key = key($breadcrumbArray);
-            // Set new value...
-            $breadcrumbArray[$key]['title'] = $title;
+            // Make sure the element has a custom field
+            if (!empty($element->$customFieldHandle)) {
+
+                // Set title from custom field in element model
+                $title = $element->$customFieldHandle;
+
+                // Move internal pointer to the end of the array
+                end($breadcrumbArray);
+                // Fetch last key in array...
+                $key = key($breadcrumbArray);
+                // Set new value...
+                $breadcrumbArray[$key]['title'] = $title;
+            }
 
         }
 
