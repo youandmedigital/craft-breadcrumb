@@ -2,7 +2,7 @@
 /**
  * Breadcrumb plugin for Craft CMS 3.x
  *
- * Build a breadcrumb trail based on your current URL
+ * Generate a simple breadcrumb based on the segments in your URL
  *
  * @link      https://youandme.digital
  * @copyright Copyright (c) 2019 You & Me Digital
@@ -50,12 +50,12 @@ class BreadcrumbService extends Component
         // set default position key
         $defaultPosition = 1;
 
-        // for each segment array as currentSlug
-        foreach ($urlArray as $currentSlug) {
+        // for each segment in array
+        foreach ($urlArray as $segment) {
 
-            // build path from current slug
-            $path .= '/' . $currentSlug;
-            $title = ucwords(str_replace(array('-', '_'), ' ', $currentSlug));
+            // build path from current segment
+            $path .= '/' . $segment;
+            $title = ucwords(str_replace(array('-', '_'), ' ', $segment));
 
             // output new array and asign title and build url
             $output[] = array('title' => $title, 'url' => $baseUrl . $path );
@@ -77,14 +77,14 @@ class BreadcrumbService extends Component
             $val['position'] = $defaultPosition++;
         }
 
-        // remove item from array
+        // remove segment from array
         if ($skipUrlSegment) {
             $index = $skipUrlSegment - 1 ;
             unset($breadcrumbArray[$index]);
         }
 
         // if entry is an Entry, Category or Tag element
-        // and id is not 0
+        // and customFieldHandleEntryId is not 0
         // and customFieldHandle is not null
         if (
             ($elementType = 'craft\elements\Entry') ||
@@ -99,20 +99,17 @@ class BreadcrumbService extends Component
             // make sure the element has a custom field
             if (!empty($element->$customFieldHandle)) {
 
-                // set title from custom field in element model
-                $title = $element->$customFieldHandle;
-
                 // move internal pointer to the end of the array
                 end($breadcrumbArray);
                 // fetch last key in array...
                 $key = key($breadcrumbArray);
                 // set new value...
-                $breadcrumbArray[$key]['title'] = $title;
+                $breadcrumbArray[$key]['title'] = $element->$customFieldHandle;
             }
 
         }
 
-        // return the amount of results if set
+        // limit and return the amount of results if set
         if ($limit) {
             return array_slice($breadcrumbArray, 0, $limit);
         }
