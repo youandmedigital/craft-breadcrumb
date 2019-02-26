@@ -1,6 +1,6 @@
 # Breadcrumb plugin for Craft CMS 3.1
 
-Generate a simple breadcrumb trail from the segments in your website URL
+Generate a simple breadcrumb based on the segments in your URL
 
 ## Requirements
 
