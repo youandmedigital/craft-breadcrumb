@@ -98,7 +98,8 @@ You can use Twig to work magic on the Breadcrumb array, but Breadcrumb also come
         homeUrl: 'https://example.com',
         skipUrlSegment: 1,
         customFieldHandleEntryId: entry.id,
-        customFieldHandle: 'myCustomField'
+        customFieldHandle: 'myCustomField',
+        limit: '3'
     }
 %}
 
@@ -114,6 +115,8 @@ You can use Twig to work magic on the Breadcrumb array, but Breadcrumb also come
 - **customFieldHandleEntryId** `(int, optional, default '0')`: Required for customFieldHandle. Nothing to customise.
 
 - **customFieldHandle** `(string, optional, default 'null')`: Specify a field that contains a custom title. This only works for the last item in the breadcrumb array. Requires customFieldHandleEntryId to work.
+
+- **limit** `(int, optional, default 'null')`: If set, will limit the amount of results returned in the Breadcrumb array.
 
 ## Is Breadcrumb right for me?
 
