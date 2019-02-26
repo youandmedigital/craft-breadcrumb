@@ -1,6 +1,6 @@
 # Breadcrumb plugin for Craft CMS 3.x
 
-tbc
+Build a breadcrumb trail based on your current URL
 
 ![Screenshot](resources/img/plugin-logo.png)
 
@@ -29,11 +29,14 @@ To install the plugin, follow these instructions.
 ## Configuring Breadcrumb
 
 ```
+{% set entry = entry ?? category ?? tag ?? null %}
 {% set settings =
     {
         homeTitle: 'Home',
         homeUrl: 'https://google.com',
-        skipUrlSegment: 1
+        skipUrlSegment: 1,
+        id: entry.id,
+        customFieldHandle: 'myCustomField'
     }
 %}
 {% set breadcrumb = craft.breadcrumb.config(settings) %}
