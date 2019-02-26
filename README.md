@@ -1,6 +1,6 @@
 # Breadcrumb plugin for Craft CMS 3.1
 
-Build a breadcrumb trail based on your current URL
+Build a simple breadcrumb trail based on your current URL
 
 ## Requirements
 
@@ -26,7 +26,7 @@ Breadcrumb allows you to build a breadcrumb trail with little effort. It works b
 
 There is no need to worry about setting up a breadcrumb for sections and another for categories or even tags.
 
-For example, if you setup a Breadcrumb and your website URL looks like this:
+For example, if you setup a breadcrumb and your website URL looks like this:
 ```
 https://mysite.local/posts/categories/example-category
 ```
@@ -84,7 +84,7 @@ With this array, you could template it using Twig. Here's a basic example:
 
 ## Configuring Breadcrumb
 
-You can use Twig to work magic on the Breadcrumb array, but Breadcrumb also comes with these settings:
+You can use Twig to work magic on the Breadcrumb array, but the plugin also comes with these settings:
 
 ```
 {# If entry variable is empty, try category, tag and finally return null #}
@@ -105,19 +105,19 @@ You can use Twig to work magic on the Breadcrumb array, but Breadcrumb also come
 {# Settings array passed into the Breadcrumb config #}
 {% set breadcrumb = craft.breadcrumb.config(settings) %}
 ```
-- **homeTitle** `(string, optional, default 'Home')`: This allows you to customise the title of the first item in the Breadcrumb
+- **homeTitle** `(string, optional, default 'Home')`: This allows you to customise the title of the first item in the breadcrumb
 
-- **homeUrl** `(string, optional, default '@baseUrl')`: This allows you to set a custom URL for the first item in the Breadcrumb
+- **homeUrl** `(string, optional, default '@baseUrl')`: This allows you to set a custom URL for the first item in the breadcrumb
 
-- **skipUrlSegment** `(int, optional, default 'null')`: This allows you to remove a segment from the Breadcrumb array. For example, if you have the URL `https://mysite.local/posts/categories/example-category` and want to remove `categories` from the Breadcrumb, you would enter `3` as a value. This would remove the 3rd segment from all URL's, so be careful!
+- **skipUrlSegment** `(int, optional, default 'null')`: This allows you to remove a segment from the Breadcrumb array. For example, if you have the URL `https://mysite.local/posts/categories/example-category` and want to remove `categories` from the breadcrumb, you would enter `3` as a value. This would remove the 3rd segment from all URL's, so be careful!
 
 - **customFieldHandleEntryId** `(int, optional, default '0')`: Works with customFieldHandle. Nothing to customise here.
 
-- **customFieldHandle** `(string, optional, default 'null')`: This allows you to specify a custom field that contains a custom title you want to appear in the Breadcrumb. This only works for the last item in the Breadcrumb. Requires customFieldHandleEntryId to work.
+- **customFieldHandle** `(string, optional, default 'null')`: This allows you to specify a custom field that contains a custom title you want to appear in the breadcrumb. This only works for the last item in the breadcrumb. Requires customFieldHandleEntryId to work.
 
 ## Is Breadcrumb right for me?
 
-If you have a URL like `https://mysite.local/posts/categories/example-category`, it will generate a Breadcrumb based on each segment in the URL. This means if you don't have a template or redirect setup for `https://mysite.local/posts/categories` it will return a 404 when clicked from the Breadcrumb trail.
+If you have a URL like `https://mysite.local/posts/categories/example-category`, it will generate a breadcrumb based on each segment in the URL. This means if you don't have a template or redirect setup for `https://mysite.local/posts/categories` it will return a 404 when clicked from the breadcrumb trail.
 
 If you have a url that looks like `https://mysite.local/c/12/random/post-title`, Breadcrumb is not for you.
 
