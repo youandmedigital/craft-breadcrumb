@@ -11,6 +11,7 @@
 namespace youandmedigital\breadcrumb\services;
 
 use youandmedigital\breadcrumb\Breadcrumb;
+use craft\elements\Entry;
 
 use Craft;
 use craft\base\Component;
@@ -27,18 +28,21 @@ class BreadcrumbService extends Component
     // Public Methods
     // =========================================================================
 
-    public function buildBreadcrumb($settings) : array
+    public function buildBreadcrumb($settings)
     {
-
         // get and set settings array
         $homeTitle = isset($settings['homeTitle']) ? $settings['homeTitle'] : 'Home';
         $homeUrl = isset($settings['homeUrl']) ? $settings['homeUrl'] : null;
-        $skipUrlSegment = isset($settings['$skipUrlSegment']) ? $settings['$skipUrlSegment'] : null;
+        $skipUrlSegment = isset($settings['skipUrlSegment']) ? $settings['skipUrlSegment'] : null;
+        $id = isset($settings['id']) ? $settings['id'] : 0;
+        $customFieldHandle = isset($settings['customFieldHandle']) ? $settings['customFieldHandle'] : null;
 
         // get each segment in the given URL
         $urlArray = Craft::$app->request->getSegments();
         // get sites base url
         $baseUrl = Craft::getAlias('@baseUrl');
+        // get element type
+        $elementType = Craft::$app->elements->getElementTypeById($id);
 
         // set path to empty
         $path = '';
@@ -76,6 +80,22 @@ class BreadcrumbService extends Component
         if ($skipUrlSegment) {
             $index = $skipUrlSegment - 1 ;
             unset($breadcrumbArray[$index]);
+        }
+
+        // If entry is an Entry Element
+        if ( ($elementType == 'craft\elements\Entry') ) {
+            // get entry model based on id
+            $element = Entry::find()->id($id)->one();
+            // set title from custom field in entry model
+            $title = $element->$customFieldHandle;
+
+            // Move internal pointer to the end of the array
+            end($breadcrumbArray);
+            // Fetch last key in array...
+            $key = key($breadcrumbArray);
+            // Set new value...
+            $breadcrumbArray[$key]['title'] = $title;
+
         }
 
         // Return output
