@@ -28,14 +28,14 @@ To install the plugin, follow these instructions.
 
 Generate a simple breadcrumb based on your URL segments. It's perfect for websites that have descriptive and meaningful URLs.
 
-No need to setup a breadcrumb for sections and another for categories or even tags.
+No need to setup a breadcrumb for a [structure](https://craftcms.com/guides/displaying-breadcrumbs-for-an-entry) and another for [categories](https://craftcms.stackexchange.com/questions/19910/categories-as-breadcrumbs).
 
 If your website URL looked like this:
 ```
 https://mysite.local/posts/categories/example-category
 ```
 
-Breadcrumb would automatically generate the following array:
+Breadcrumb would generate the following array:
 ```
 array (size=4)
   0 =>
@@ -135,6 +135,6 @@ If you have a multilingual site setup, Breadcrumb will add the language segment 
 
 Some things to do, and ideas for potential features:
 
-* Release it
+* Release it...
 
 Brought to you by [You & Me Digital](https://youandme.digital)
