@@ -4,7 +4,7 @@
 
 # Breadcrumb plugin for Craft CMS 3.1
 
-Generate a simple breadcrumb based on the segments in your URL
+Generate a simple breadcrumb based on your URL segments.
 
 ## Requirements
 
@@ -26,7 +26,7 @@ To install the plugin, follow these instructions.
 
 ## Breadcrumb Overview
 
-Generate a simple breadcrumb based on the segments in your URL. It is perfect for websites that have descriptive and meaningful URL's.
+Generate a simple breadcrumb based on your URL segments. It's perfect for websites that have descriptive and meaningful URLs.
 
 No need to setup a breadcrumb for sections and another for categories or even tags.
 

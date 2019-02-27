@@ -1,6 +1,6 @@
 {
     "name": "youandmedigital/breadcrumb",
-    "description": "Generate a simple breadcrumb based on the segments in your URL",
+    "description": "Generate a simple breadcrumb based on your URL segments",
     "type": "craft-plugin",
     "version": "0.0.1",
     "keywords": [
