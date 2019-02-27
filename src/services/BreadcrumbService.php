@@ -65,10 +65,7 @@ class BreadcrumbService extends Component
         // reset baseURL for custom home URL
         if ($homeUrl) {
             $baseUrl = $homeUrl;
-            Craft::info(
-                '[ Breadcrumb ] homeUrl active. Setting URL to ' . $homeUrl,
-                __METHOD__
-            );
+
         }
 
         // create array for the home crumb...
@@ -79,6 +76,7 @@ class BreadcrumbService extends Component
         // add position key/value to breadcrumbArray
         foreach($breadcrumbArray as $position => &$val){
             $val['position'] = $defaultPosition++;
+
         }
 
         // remove segment from array
@@ -86,10 +84,6 @@ class BreadcrumbService extends Component
             $index = $skipUrlSegment - 1 ;
             unset($breadcrumbArray[$index]);
 
-            Craft::info(
-                '[ Breadcrumb ] skipUrlSegment active. Skipping segment ' . $index,
-                __METHOD__
-            );
         }
 
         // use custom field for last crumb title
@@ -115,21 +109,12 @@ class BreadcrumbService extends Component
                 $key = key($breadcrumbArray);
                 // set new value...
                 $breadcrumbArray[$key]['title'] = $element->$customFieldHandle;
-            } else {
-                Craft::error(
-                    '[ Breadcrumb ] Handle for custom field not found. Please check your settings and try again',
-                    __METHOD__
-                );
             }
 
         }
 
         // limit and return the amount of results if set
         if ($limit) {
-            Craft::info(
-                '[ Breadcrumb ] limit active. Limiting results by ' . $limit,
-                __METHOD__
-            );
             return array_slice($breadcrumbArray, 0, $limit);
         }
 
