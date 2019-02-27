@@ -16,8 +16,10 @@
     ],
     "support": {
         "docs": "https://github.com/youandmedigital/craft-breadcrumb/blob/master/README.md",
-        "issues": "https://github.com/youandmedigital/craft-breadcrumb/issues"
+        "issues": "https://github.com/youandmedigital/craft-breadcrumb/issues",
+        "source": "https://github.com/youandmedigital/craft-breadcrumb",
     },
+    "documentationUrl": "https://github.com/youandmedigital/craft-breadcrumb/blob/master/README.md",
     "license": "MIT",
     "authors": [
         {
