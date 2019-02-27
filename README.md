@@ -128,7 +128,7 @@ If you have a url that looks like `https://mysite.local/c/12/random/post-title`,
 
 If you need to pull in a custom field to generate each title, Breadcrumb is not for you. Titles are generated from the URL. You can only customise the last url segment.
 
-If you have a multilingual site setup, Breadcrumb will add the language segment to the crumb. This can be fixed by working with `skipUrlSegment` and rebuilding the `homeTitle` and `homeUrl`.
+If you have a multilingual site setup, Breadcrumb will add the language segment to the crumb. This can be fixed by working with `skipUrlSegment`, `homeTitle` and `homeUrl`.
 
 
 ## Breadcrumb Roadmap
