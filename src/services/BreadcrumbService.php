@@ -21,7 +21,7 @@ use craft\base\Component;
  *
  * @author    You & Me Digital
  * @package   Breadcrumb
- * @since     0.0.1
+ * @since     1.0.0
  */
 class BreadcrumbService extends Component
 {
@@ -65,6 +65,10 @@ class BreadcrumbService extends Component
         // reset baseURL for custom home URL
         if ($homeUrl) {
             $baseUrl = $homeUrl;
+            Craft::info(
+                '[ Breadcrumb ] homeUrl active. Setting URL to ' . $homeUrl,
+                __METHOD__
+            );
         }
 
         // create array for the home crumb...
@@ -81,8 +85,14 @@ class BreadcrumbService extends Component
         if ($skipUrlSegment) {
             $index = $skipUrlSegment - 1 ;
             unset($breadcrumbArray[$index]);
+
+            Craft::info(
+                '[ Breadcrumb ] skipUrlSegment active. Skipping segment ' . $index,
+                __METHOD__
+            );
         }
 
+        // use custom field for last crumb title
         // if entry is an Entry, Category or Tag element
         // and customFieldHandleEntryId is not 0
         // and customFieldHandle is not null
@@ -105,12 +115,21 @@ class BreadcrumbService extends Component
                 $key = key($breadcrumbArray);
                 // set new value...
                 $breadcrumbArray[$key]['title'] = $element->$customFieldHandle;
+            } else {
+                Craft::error(
+                    '[ Breadcrumb ] Handle for custom field not found. Please check your settings and try again',
+                    __METHOD__
+                );
             }
 
         }
 
         // limit and return the amount of results if set
         if ($limit) {
+            Craft::info(
+                '[ Breadcrumb ] limit active. Limiting results by ' . $limit,
+                __METHOD__
+            );
             return array_slice($breadcrumbArray, 0, $limit);
         }
 
