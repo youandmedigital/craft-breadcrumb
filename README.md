@@ -86,7 +86,7 @@ With this array, you can now use Twig to define the look and apply additional lo
 {% endif %}
 ```
 
-This example uses the Twig [loop variable]https://twig.symfony.com/doc/2.x/tags/for.html#the-loop-variable to set the last item in the crumb.
+This example uses the [Twig loop variable](https://twig.symfony.com/doc/2.x/tags/for.html#the-loop-variable) to set the last item in the crumb.
 
 ## Configuring Breadcrumb
 
