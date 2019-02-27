@@ -86,7 +86,23 @@ With this array, you can now use Twig to define the look and apply additional lo
 {% endif %}
 ```
 
+This example uses the Twig [loop variable]https://twig.symfony.com/doc/2.x/tags/for.html#the-loop-variable to set the last item in the crumb.
+
 ## Configuring Breadcrumb
+
+- **homeTitle** `(string, optional, default 'Home')`: Customise the title of the first item in the breadcrumb
+
+- **homeUrl** `(string, optional, default '@baseUrl')`: Set a custom URL for the first item in the breadcrumb
+
+- **skipUrlSegment** `(int, optional, default 'null')`: Remove a segment from the Breadcrumb array. For example, if you have the URL `https://mysite.local/posts/categories/example-category` and wanted to remove `categories` from the array, you would enter `3` as the value.
+
+- **customFieldHandleEntryId** `(int, optional, default '0')`: Required for customFieldHandle. Nothing to customise.
+
+- **customFieldHandle** `(string, optional, default 'null')`: Specify a field that contains a custom title. This only works for the last item in the breadcrumb array. Requires customFieldHandleEntryId to work.
+
+- **limit** `(int, optional, default 'null')`: Limit the amount of results returned in the Breadcrumb array.
+
+Example configuration:
 
 ```
 {# If entry variable is empty, try category, tag and finally return null #}
@@ -108,25 +124,22 @@ With this array, you can now use Twig to define the look and apply additional lo
 {# Settings array passed into the Breadcrumb config #}
 {% set breadcrumb = craft.breadcrumb.config(settings) %}
 ```
-- **homeTitle** `(string, optional, default 'Home')`: Customise the title of the first item in the breadcrumb
-
-- **homeUrl** `(string, optional, default '@baseUrl')`: Set a custom URL for the first item in the breadcrumb
-
-- **skipUrlSegment** `(int, optional, default 'null')`: Remove a segment from the Breadcrumb array. For example, if you have the URL `https://mysite.local/posts/categories/example-category` and wanted to remove `categories` from the array, you would enter `3` as the value.
-
-- **customFieldHandleEntryId** `(int, optional, default '0')`: Required for customFieldHandle. Nothing to customise.
-
-- **customFieldHandle** `(string, optional, default 'null')`: Specify a field that contains a custom title. This only works for the last item in the breadcrumb array. Requires customFieldHandleEntryId to work.
-
-- **limit** `(int, optional, default 'null')`: Limit the amount of results returned in the Breadcrumb array.
 
 ## Is Breadcrumb right for me?
 
-If you have a URL like `https://mysite.local/posts/categories/example-category`, Breadcrumb will generate an array based on each segment in the URL. This means if you don't have a template or redirect setup for `https://mysite.local/posts/categories` the link will return a 404.
+### I don't have templates setup for each segment in my URL
+
+If you have a URL like `https://mysite.local/posts/categories/example-category`, Breadcrumb will generate an array based on each segment in the URL. This means if you don't have a template or redirect setup for `https://mysite.local/posts/categories` the link will return a 404 and create a bad UX.
+
+### I'm not using human friendly URLs
 
 If you have a url that looks like `https://mysite.local/c/12/random/post-title`, Breadcrumb is not for you.
 
+### I want to use a field to display custom titles
+
 If you need to pull in a custom field to generate each title, Breadcrumb is not for you. Titles are generated from the URL. You can only customise the last url segment.
+
+### I have a multilingual site setup
 
 If you have a multilingual site setup, Breadcrumb will add the language segment to the crumb. This can be fixed by working with `skipUrlSegment`, `homeTitle` and `homeUrl`.
 
