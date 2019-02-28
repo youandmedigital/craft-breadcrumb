@@ -10,6 +10,10 @@ Generate a simple breadcrumb based on your URL segments.
 
 This plugin requires Craft CMS 3.1 or later.
 
+<p align="center">
+    <img src="https://github.com/jonleverrier/craft-breadcrumb/blob/master/resources/plugin-banner.jpg" alt="Breadcrumb from URL" />
+</p>
+
 ## Installation
 
 To install the plugin, follow these instructions.
