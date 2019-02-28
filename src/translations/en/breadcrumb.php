@@ -18,7 +18,7 @@
  *
  * @author    You & Me Digital
  * @package   Breadcrumb
- * @since     1.0.0
+ * @since     1.0.1
  */
 return [
     'Breadcrumb plugin loaded' => 'Breadcrumb plugin loaded',
