@@ -1,12 +1,8 @@
 <p align="center">
     <img src="https://github.com/jonleverrier/craft-breadcrumb/blob/master/src/icon.svg" alt="Craft Breadcrumb" width="150"/>
 </p>
-<<<<<<< HEAD
-## Breadcrumb plugin for Craft CMS 3.1
-=======
 
 # Breadcrumb plugin for Craft CMS 3.1
->>>>>>> master
 
 Generate a simple breadcrumb based on your URL segments.
 
@@ -151,5 +147,7 @@ If you have a multilingual site setup, Breadcrumb will add the language segment 
 Some things to do, and ideas for potential features:
 
 * Release it...
+
+PR & FR welcome!
 
 Brought to you by [You & Me Digital](https://youandme.digital)
