@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/jonleverrier/craft-breadcrumb/blob/master/src/icon.svg" alt="Craft Breadcrumb" width="150"/>
+    <img src="https://github.com/youandmedigital/craft-breadcrumb/blob/master/src/icon.svg" alt="Craft Breadcrumb" width="150"/>
 </p>
 
 # Breadcrumb plugin for Craft CMS 3.1
@@ -11,7 +11,7 @@ Generate a simple breadcrumb based on your URL segments.
 This plugin requires Craft CMS 3.1 or later.
 
 <p align="center">
-    <img src="https://github.com/jonleverrier/craft-breadcrumb/blob/master/resources/plugin-banner.jpg" alt="Breadcrumb from URL" />
+    <img src="https://raw.githubusercontent.com/youandmedigital/craft-breadcrumb/master/src/resources/plugin-banner.jpg" alt="Breadcrumb from URL" />
 </p>
 
 ## Installation
