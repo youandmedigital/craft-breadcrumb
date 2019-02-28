@@ -4,7 +4,7 @@
 
 # Breadcrumb plugin for Craft CMS 3.1
 
-Generate a simple breadcrumb based on your URL segments.
+Generate a simple breadcrumb from a URL.
 
 ## Requirements
 
@@ -30,7 +30,7 @@ To install the plugin, follow these instructions.
 
 ## Breadcrumb Overview
 
-Generate a simple breadcrumb based on your URL segments. It's perfect for websites that have descriptive and meaningful URLs.
+Generate a simple breadcrumb based on segments in your URL. It's perfect for websites that have descriptive and meaningful URLs.
 
 If your website URL looked like this:
 ```
@@ -139,7 +139,7 @@ If you have a url that looks like `https://mysite.local/c/12/random/post-title`,
 
 ### I want to use a field to display custom titles
 
-If you need to pull in a custom field to generate each title, Breadcrumb is not for you. Titles are generated from the URL. You can only customise the last url segment.
+If you need to pull in a custom field to generate each title, Breadcrumb is not for you. Titles are generated from the URL. You can only customise the last URL segment.
 
 ### I have a multilingual site setup
 
