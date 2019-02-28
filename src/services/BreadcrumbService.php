@@ -21,7 +21,7 @@ use craft\base\Component;
  *
  * @author    You & Me Digital
  * @package   Breadcrumb
- * @since     1.0.1
+ * @since     1.0.2
  */
 class BreadcrumbService extends Component
 {
