@@ -127,21 +127,13 @@ Example configuration:
 {% set breadcrumb = craft.breadcrumb.config(settings) %}
 ```
 
-## Is Breadcrumb right for me?
+## Breadcrumb might not be right for you...
 
-### I don't have templates setup for each segment in my URL
+- If don't have templates defined for each URL segment
 
-If you have a URL like `https://mysite.local/posts/categories/example-category`, Breadcrumb will generate an array based on each segment in the URL. This means if you don't have a template or redirect setup for `https://mysite.local/posts/categories` the link will return a 404 and create a bad UX.
+- If your URLs are not human friendly
 
-### I'm not using human friendly URLs
-
-If you have a url that looks like `https://mysite.local/c/12/random/post-title`, Breadcrumb is not for you.
-
-### I want to use a field to display custom titles
-
-If you need to pull in a custom field to generate each title, Breadcrumb is not for you. Titles are generated from the URL. You can only customise the last URL segment.
-
-### I have a multilingual site setup
+- If you want to customise each title in the breadcrumb
 
 If you have a multilingual site setup, Breadcrumb will add the language segment to the crumb. This can be fixed by working with `skipUrlSegment`, `homeTitle` and `homeUrl`.
 
