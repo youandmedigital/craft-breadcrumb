@@ -31,7 +31,7 @@ class BreadcrumbVariable
     // Public Methods
     // =========================================================================
 
-    public function config($settings = NULL)
+    public function config($settings = null)
     {
         return Breadcrumb::$plugin->breadcrumbService->buildBreadcrumb($settings);
     }

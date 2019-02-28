@@ -12,6 +12,7 @@ namespace youandmedigital\breadcrumb\services;
 
 use youandmedigital\breadcrumb\Breadcrumb;
 use craft\elements\Entry;
+use craft\elements\Category;
 
 use Craft;
 use craft\base\Component;
@@ -58,7 +59,7 @@ class BreadcrumbService extends Component
             $title = ucwords(str_replace(array('-', '_'), ' ', $segment));
 
             // output new array and asign title and build url
-            $output[] = array('title' => $title, 'url' => $baseUrl . $path );
+            $output[] = array('title' => $title, 'url' => $baseUrl . $path);
 
         }
 
@@ -86,19 +87,36 @@ class BreadcrumbService extends Component
 
         }
 
-        // use custom field for last crumb title
-        // if entry is an Entry, Category or Tag element
-        // and customFieldHandleEntryId is not 0
-        // and customFieldHandle is not null
+        // set custom field for an Entry
         if (
-            ($elementType = 'craft\elements\Entry') ||
-            ($elementType = 'craft\elements\Category') ||
-            ($elementType = 'craft\elements\Tag') &&
+            ($elementType == 'craft\elements\Entry') &&
             ($customFieldHandleEntryId != 0) &&
             (!empty($customFieldHandle))
         ) {
             // get entry model based on id
             $element = Entry::find()->id($customFieldHandleEntryId)->one();
+
+            // make sure the element has a custom field
+            if (!empty($element->$customFieldHandle)) {
+
+                // move internal pointer to the end of the array
+                end($breadcrumbArray);
+                // fetch last key in array...
+                $key = key($breadcrumbArray);
+                // set new value...
+                $breadcrumbArray[$key]['title'] = $element->$customFieldHandle;
+            }
+
+        }
+
+        // set custom field for an Category
+        if (
+            ($elementType == 'craft\elements\Category') &&
+            ($customFieldHandleEntryId != 0) &&
+            (!empty($customFieldHandle))
+        ) {
+            // get entry model based on id
+            $element = Category::find()->id($customFieldHandleEntryId)->one();
 
             // make sure the element has a custom field
             if (!empty($element->$customFieldHandle)) {
