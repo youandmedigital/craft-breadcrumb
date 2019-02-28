@@ -1,19 +1,23 @@
 {
     "name": "youandmedigital/breadcrumb",
-    "description": "Generate a simple breadcrumb based on the segments in your URL",
+    "description": "Generate a simple breadcrumb based on your URL segments",
     "type": "craft-plugin",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "keywords": [
         "craft",
         "cms",
         "craftcms",
         "craft-plugin",
         "breadcrumb",
-        "navigation"
+        "navigation",
+        "templating",
+        "utilities",
+        "development"
     ],
     "support": {
-        "docs": "https://github.com/youandmedigital/breadcrumb/blob/master/README.md",
-        "issues": "https://github.com/youandmedigital/breadcrumb/issues"
+        "docs": "https://github.com/youandmedigital/craft-breadcrumb/blob/master/README.md",
+        "issues": "https://github.com/youandmedigital/craft-breadcrumb/issues",
+        "source": "https://github.com/youandmedigital/craft-breadcrumb"
     },
     "license": "MIT",
     "authors": [
@@ -23,7 +27,7 @@
         }
     ],
     "require": {
-        "craftcms/cms": "^3.0.0-RC1"
+        "craftcms/cms": "^3.1.0"
     },
     "autoload": {
         "psr-4": {
@@ -35,7 +39,7 @@
         "handle": "breadcrumb",
         "hasCpSettings": false,
         "hasCpSection": false,
-        "changelogUrl": "https://raw.githubusercontent.com/youandmedigital/breadcrumb/master/CHANGELOG.md",
+        "changelogUrl": "https://raw.githubusercontent.com/youandmedigital/craft-breadcrumb/master/CHANGELOG.md",
         "components": {
             "breadcrumbService": "youandmedigital\\breadcrumb\\services\\BreadcrumbService"
         },

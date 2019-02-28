@@ -1,8 +1,8 @@
 <?php
 /**
- * Breadcrumb plugin for Craft CMS 3.x
+ * Breadcrumb plugin for Craft CMS 3.1
  *
- * Generate a simple breadcrumb based on the segments in your URL
+ * Generate a simple breadcrumb based on your URL segments.
  *
  * @link      https://youandme.digital
  * @copyright Copyright (c) 2019 You & Me Digital
@@ -21,7 +21,7 @@ use craft\base\Component;
  *
  * @author    You & Me Digital
  * @package   Breadcrumb
- * @since     0.0.1
+ * @since     1.0.0
  */
 class BreadcrumbService extends Component
 {
@@ -65,6 +65,7 @@ class BreadcrumbService extends Component
         // reset baseURL for custom home URL
         if ($homeUrl) {
             $baseUrl = $homeUrl;
+
         }
 
         // create array for the home crumb...
@@ -75,14 +76,17 @@ class BreadcrumbService extends Component
         // add position key/value to breadcrumbArray
         foreach($breadcrumbArray as $position => &$val){
             $val['position'] = $defaultPosition++;
+
         }
 
         // remove segment from array
         if ($skipUrlSegment) {
             $index = $skipUrlSegment - 1 ;
             unset($breadcrumbArray[$index]);
+
         }
 
+        // use custom field for last crumb title
         // if entry is an Entry, Category or Tag element
         // and customFieldHandleEntryId is not 0
         // and customFieldHandle is not null

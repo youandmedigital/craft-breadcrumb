@@ -1,8 +1,8 @@
 <?php
 /**
- * Breadcrumb plugin for Craft CMS 3.x
+ * Breadcrumb plugin for Craft CMS 3.1
  *
- * Generate a simple breadcrumb trail from the segments in your website URL
+ * Generate a simple breadcrumb based on your URL segments.
  *
  * @link      https://youandme.digital
  * @copyright Copyright (c) 2019 You & Me Digital
@@ -25,7 +25,7 @@ use yii\base\Event;
  *
  * @author    You & Me Digital
  * @package   Breadcrumb
- * @since     0.0.1
+ * @since     1.0.0
  *
  * @property  BreadcrumbServiceService $breadcrumbService
  */
@@ -39,7 +39,7 @@ class Breadcrumb extends Plugin
     // Public Properties
     // =========================================================================
 
-    public $schemaVersion = '0.0.1';
+    public $schemaVersion = '1.0.0';
 
     // Public Methods
     // =========================================================================

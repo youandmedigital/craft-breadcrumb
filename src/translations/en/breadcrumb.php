@@ -2,7 +2,7 @@
 /**
  * Breadcrumb plugin for Craft CMS 3.x
  *
- * Generate a simple breadcrumb based on the segments in your URL
+ * Generate a simple breadcrumb based on your URL segments.
  *
  * @link      https://youandme.digital
  * @copyright Copyright (c) 2019 You & Me Digital
@@ -18,7 +18,7 @@
  *
  * @author    You & Me Digital
  * @package   Breadcrumb
- * @since     0.0.1
+ * @since     1.0.0
  */
 return [
     'Breadcrumb plugin loaded' => 'Breadcrumb plugin loaded',
