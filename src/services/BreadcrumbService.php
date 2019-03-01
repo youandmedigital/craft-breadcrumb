@@ -87,7 +87,7 @@ class BreadcrumbService extends Component
 
         }
 
-        // set custom field for an Entry
+        // set custom field for an Entry element
         if (
             ($elementType == 'craft\elements\Entry') &&
             ($customFieldHandleEntryId != 0) &&
@@ -96,20 +96,9 @@ class BreadcrumbService extends Component
             // get entry model based on id
             $element = Entry::find()->id($customFieldHandleEntryId)->one();
 
-            // make sure the element has a custom field
-            if (!empty($element->$customFieldHandle)) {
-
-                // move internal pointer to the end of the array
-                end($breadcrumbArray);
-                // fetch last key in array...
-                $key = key($breadcrumbArray);
-                // set new value...
-                $breadcrumbArray[$key]['title'] = $element->$customFieldHandle;
-            }
-
         }
 
-        // set custom field for an Category
+        // set custom field for an Category element
         if (
             ($elementType == 'craft\elements\Category') &&
             ($customFieldHandleEntryId != 0) &&
@@ -118,17 +107,17 @@ class BreadcrumbService extends Component
             // get entry model based on id
             $element = Category::find()->id($customFieldHandleEntryId)->one();
 
-            // make sure the element has a custom field
-            if (!empty($element->$customFieldHandle)) {
+        }
 
-                // move internal pointer to the end of the array
-                end($breadcrumbArray);
-                // fetch last key in array...
-                $key = key($breadcrumbArray);
-                // set new value...
-                $breadcrumbArray[$key]['title'] = $element->$customFieldHandle;
-            }
+        // If the element returns a value...
+        if (!empty($element->$customFieldHandle)) {
 
+            // move internal pointer to the end of the array
+            end($breadcrumbArray);
+            // fetch last key in array...
+            $key = key($breadcrumbArray);
+            // set title with new value
+            $breadcrumbArray[$key]['title'] = $element->$customFieldHandle;
         }
 
         // limit and return the amount of results if set
