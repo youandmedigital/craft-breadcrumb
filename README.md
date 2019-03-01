@@ -92,6 +92,8 @@ This example uses the [Twig loop variable](https://twig.symfony.com/doc/2.x/tags
 
 ## Configuring Breadcrumb
 
+Breadcrumb has the following settings available:
+
 - **homeTitle** `(string, optional, default 'Home')`: Customise the title of the first item in the breadcrumb
 
 - **homeUrl** `(string, optional, default '@baseUrl')`: Set a custom URL for the first item in the breadcrumb
@@ -104,7 +106,7 @@ This example uses the [Twig loop variable](https://twig.symfony.com/doc/2.x/tags
 
 - **limit** `(int, optional, default 'null')`: Limit the amount of results returned in the Breadcrumb array.
 
-Example configuration:
+Example setting configuration:
 
 ```
 {# If entry variable is empty, try category, tag and finally return null #}
