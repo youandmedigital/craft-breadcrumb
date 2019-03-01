@@ -131,7 +131,7 @@ Example setting configuration:
 
 ## Breadcrumb might not be right for your project...
 
-- If don't have templates defined for each URL segment
+- If you don't have templates defined for each URL segment
 
 - If your URLs don't make sense to a human
 
