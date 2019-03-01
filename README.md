@@ -2,7 +2,7 @@
     <img src="https://github.com/youandmedigital/craft-breadcrumb/blob/master/src/icon.svg" alt="Craft Breadcrumb" width="150"/>
 </p>
 
-# Breadcrumb plugin for Craft CMS 3.1
+# Breadcrumb for Craft CMS 3.1
 
 Generate a simple breadcrumb from a URL.
 
