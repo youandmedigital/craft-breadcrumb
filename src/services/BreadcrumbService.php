@@ -29,7 +29,7 @@ class BreadcrumbService extends Component
     // Public Methods
     // =========================================================================
 
-    public function buildBreadcrumb($settings)
+    public function buildBreadcrumb($settings) : array
     {
         // get and set settings array
         $homeTitle = isset($settings['homeTitle']) ? $settings['homeTitle'] : 'Home';
@@ -109,15 +109,15 @@ class BreadcrumbService extends Component
 
         }
 
-        // If the element returns a value...
+        // if the element returns a value...
         if (!empty($element->$customFieldHandle)) {
-
             // move internal pointer to the end of the array
             end($breadcrumbArray);
             // fetch last key in array...
             $key = key($breadcrumbArray);
             // set title with new value
             $breadcrumbArray[$key]['title'] = $element->$customFieldHandle;
+
         }
 
         // limit and return the amount of results if set
