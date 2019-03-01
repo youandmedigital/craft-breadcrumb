@@ -94,9 +94,9 @@ This example uses the [Twig loop variable](https://twig.symfony.com/doc/2.x/tags
 
 Breadcrumb has the following settings available:
 
-- **homeTitle** `(string, optional, default 'Home')`: Customise the title of the first item in the breadcrumb
+- **homeTitle** `(string, optional, default 'Home')`: Customise the title of the first item in the breadcrumb.
 
-- **homeUrl** `(string, optional, default '@baseUrl')`: Set a custom URL for the first item in the breadcrumb
+- **homeUrl** `(string, optional, default '@baseUrl')`: Set a custom URL for the first item in the breadcrumb.
 
 - **skipUrlSegment** `(int, optional, default 'null')`: Remove a segment from the Breadcrumb array. For example, if you have the URL `https://mysite.local/posts/categories/example-category` and wanted to remove `categories` from the array, you would enter `3` as the value.
 
