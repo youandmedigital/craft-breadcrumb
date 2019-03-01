@@ -41,7 +41,7 @@ class BreadcrumbService extends Component
 
         // get each segment in the given URL
         $urlArray = Craft::$app->request->getSegments();
-        // get sites base url
+        // get site baseUrl value
         $baseUrl = Craft::getAlias('@baseUrl');
         // get element type
         $elementType = Craft::$app->elements->getElementTypeById($customFieldHandleEntryId);
@@ -58,12 +58,12 @@ class BreadcrumbService extends Component
             $path .= '/' . $segment;
             $title = ucwords(str_replace(array('-', '_'), ' ', $segment));
 
-            // output new array and asign title and build url
+            // output new array... set title and build url
             $output[] = array('title' => $title, 'url' => $baseUrl . $path);
 
         }
 
-        // reset baseURL for custom home URL
+        // reset baseURL for custom homeURL
         if ($homeUrl) {
             $baseUrl = $homeUrl;
 
@@ -123,6 +123,7 @@ class BreadcrumbService extends Component
         // limit and return the amount of results if set
         if ($limit) {
             return array_slice($breadcrumbArray, 0, $limit);
+            
         }
 
         // return output
