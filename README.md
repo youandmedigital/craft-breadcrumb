@@ -127,11 +127,11 @@ Example configuration:
 {% set breadcrumb = craft.breadcrumb.config(settings) %}
 ```
 
-## Breadcrumb might not be right for you...
+## Breadcrumb might not be right for your project...
 
 - If don't have templates defined for each URL segment
 
-- If your URLs are not human friendly
+- If your URLs don't make sense to a human
 
 - If you want to customise each title in the breadcrumb
 
