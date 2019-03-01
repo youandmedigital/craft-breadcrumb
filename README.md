@@ -144,7 +144,7 @@ If you have a multilingual site setup, Breadcrumb will add the language segment 
 
 Some things to do, and ideas for potential features:
 
-* Release it...
+* Use Yii array helper where possible
 
 PR & FR welcome!
 
