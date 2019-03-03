@@ -15,7 +15,7 @@
         "development"
     ],
     "support": {
-        "docs": "https://github.com/youandmedigital/craft-breadcrumb",
+        "docs": "https://github.com/youandmedigital/craft-breadcrumb/blob/master/README.md",
         "issues": "https://github.com/youandmedigital/craft-breadcrumb/issues",
         "source": "https://github.com/youandmedigital/craft-breadcrumb"
     },
@@ -40,6 +40,7 @@
         "hasCpSettings": false,
         "hasCpSection": false,
         "changelogUrl": "https://raw.githubusercontent.com/youandmedigital/craft-breadcrumb/master/CHANGELOG.md",
+        "documentationUrl": "https://github.com/youandmedigital/craft-breadcrumb/blob/master/README.md",
         "components": {
             "breadcrumbService": "youandmedigital\\breadcrumb\\services\\BreadcrumbService"
         },
