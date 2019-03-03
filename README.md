@@ -14,6 +14,16 @@ This plugin requires Craft CMS 3.1 or later.
     <img src="https://raw.githubusercontent.com/youandmedigital/craft-breadcrumb/master/src/resources/plugin-banner.jpg" alt="Breadcrumb from URL" />
 </p>
 
+## Breadcrumb might not be right for your project...
+
+- If you don't have templates defined for each URL segment
+
+- If your URLs don't make sense to a human
+
+- If you want to customise each title in the breadcrumb
+
+If you have a multilingual site setup, Breadcrumb will add the language segment to the crumb. This can be fixed by working with `skipUrlSegment`, `homeTitle` and `homeUrl`.
+
 ## Installation
 
 To install the plugin, follow these instructions.
@@ -128,17 +138,6 @@ Example setting configuration:
 {# Settings array passed into the Breadcrumb config #}
 {% set breadcrumb = craft.breadcrumb.config(settings) %}
 ```
-
-## Breadcrumb might not be right for your project...
-
-- If you don't have templates defined for each URL segment
-
-- If your URLs don't make sense to a human
-
-- If you want to customise each title in the breadcrumb
-
-If you have a multilingual site setup, Breadcrumb will add the language segment to the crumb. This can be fixed by working with `skipUrlSegment`, `homeTitle` and `homeUrl`.
-
 
 ## Breadcrumb Roadmap
 
