@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Changed
 - Improved checking for an Entry or Category element when applying a custom title
 
+### Added
+- Added documentationUrl to extra in composer.json to fix documentation link not showing
+
 ## 1.0.2 - 2019-02-28
 ### Changed
 - Readme improvements
