@@ -22,7 +22,7 @@ use craft\base\Component;
  *
  * @author    You & Me Digital
  * @package   Breadcrumb
- * @since     1.0.2
+ * @since     1.0.3
  */
 class BreadcrumbService extends Component
 {
@@ -123,7 +123,7 @@ class BreadcrumbService extends Component
         // limit and return the amount of results if set
         if ($limit) {
             return array_slice($breadcrumbArray, 0, $limit);
-            
+
         }
 
         // return output

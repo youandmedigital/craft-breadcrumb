@@ -24,7 +24,7 @@ use Craft;
  *
  * @author    You & Me Digital
  * @package   Breadcrumb
- * @since     1.0.2
+ * @since     1.0.3
  */
 class BreadcrumbVariable
 {
