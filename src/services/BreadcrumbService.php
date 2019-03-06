@@ -13,7 +13,6 @@ namespace youandmedigital\breadcrumb\services;
 use youandmedigital\breadcrumb\Breadcrumb;
 use craft\elements\Entry;
 use craft\elements\Category;
-use craft\helpers\UrlHelper;
 
 use Craft;
 use craft\base\Component;
@@ -55,8 +54,8 @@ class BreadcrumbService extends Component
         // set default position key
         $defaultPosition = 1;
         // set empty array
-        $homeArray = array();
-        $output = array();
+        $homeArray = [];
+        $output = [];
         $element = '';
 
         // reset baseURL for custom homeURL
