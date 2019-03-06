@@ -13,6 +13,7 @@ namespace youandmedigital\breadcrumb\services;
 use youandmedigital\breadcrumb\Breadcrumb;
 use craft\elements\Entry;
 use craft\elements\Category;
+use craft\helpers\UrlHelper;
 
 use Craft;
 use craft\base\Component;
@@ -29,7 +30,7 @@ class BreadcrumbService extends Component
     // Public Methods
     // =========================================================================
 
-    public function buildBreadcrumb($settings) : array
+    public function buildBreadcrumb($settings)
     {
         // get and set settings array
         $homeTitle = isset($settings['homeTitle']) ? $settings['homeTitle'] : 'Home';
@@ -41,8 +42,11 @@ class BreadcrumbService extends Component
 
         // get each segment in the given URL
         $urlArray = Craft::$app->request->getSegments();
+
         // get site baseUrl value
-        $baseUrl = Craft::getAlias('@baseUrl');
+        $currentSite = Craft::$app->getSites()->getCurrentSite();
+        $baseUrl = rtrim($currentSite->getBaseUrl(),'/');
+
         // get element type
         $elementType = Craft::$app->elements->getElementTypeById($customFieldHandleEntryId);
 
@@ -55,6 +59,12 @@ class BreadcrumbService extends Component
         $output = array();
         $element = '';
 
+        // reset baseURL for custom homeURL
+        if ($homeUrl) {
+            $baseUrl = $homeUrl;
+
+        }
+
         // for each segment in array
         foreach ($urlArray as $segment) {
 
@@ -64,12 +74,6 @@ class BreadcrumbService extends Component
 
             // output new array... set title and build url
             $output[] = array('title' => $title, 'url' => $baseUrl . $path);
-
-        }
-
-        // reset baseURL for custom homeURL
-        if ($homeUrl) {
-            $baseUrl = $homeUrl;
 
         }
 
