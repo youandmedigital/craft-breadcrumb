@@ -50,6 +50,9 @@ class BreadcrumbService extends Component
         $path = '';
         // set default position key
         $defaultPosition = 1;
+        // set empty array
+        $homeArray = array();
+        $output = array();
 
         // for each segment in array
         foreach ($urlArray as $segment) {
