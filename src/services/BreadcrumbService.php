@@ -53,6 +53,7 @@ class BreadcrumbService extends Component
         // set empty array
         $homeArray = array();
         $output = array();
+        $element = '';
 
         // for each segment in array
         foreach ($urlArray as $segment) {
