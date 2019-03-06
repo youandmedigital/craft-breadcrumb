@@ -75,14 +75,14 @@ class BreadcrumbService extends Component
         $breadcrumbArray = array_merge($homeArray, $output);
 
         // add position key/value to breadcrumbArray
-        foreach($breadcrumbArray as $position => &$val){
+        foreach ($breadcrumbArray as $position => &$val) {
             $val['position'] = $defaultPosition++;
 
         }
 
         // remove segment from array
         if ($skipUrlSegment) {
-            $index = $skipUrlSegment - 1 ;
+            $index = $skipUrlSegment - 1;
             unset($breadcrumbArray[$index]);
 
         }
