@@ -22,8 +22,6 @@ This plugin requires Craft CMS 3.1 or later.
 
 - If you want to customise each title in the breadcrumb
 
-If you have a multilingual site setup, Breadcrumb will add the language segment to the crumb. This can be fixed by working with `skipUrlSegment`, `homeTitle` and `homeUrl`.
-
 ## Installation
 
 To install the plugin, follow these instructions.
@@ -114,7 +112,7 @@ Breadcrumb has the following settings available:
 
 - **customFieldHandle** `(string, optional, default 'null')`: Specify a field that contains a custom title. This only works for the last item in the breadcrumb array. Requires customFieldHandleEntryId to work.
 
-- **limit** `(int, optional, default 'null')`: Limit the amount of results returned in the Breadcrumb array.
+- **limit** `(int, optional, default 'null')`: Limit the amount of crumbs returned in the Breadcrumb array.
 
 Example setting configuration:
 
