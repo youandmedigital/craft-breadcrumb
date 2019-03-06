@@ -29,7 +29,7 @@ class BreadcrumbService extends Component
     // Public Methods
     // =========================================================================
 
-    public function buildBreadcrumb($settings)
+    public function buildBreadcrumb($settings) : array
     {
         // get and set settings array
         $homeTitle = isset($settings['homeTitle']) ? $settings['homeTitle'] : 'Home';
@@ -49,13 +49,11 @@ class BreadcrumbService extends Component
         // get element type
         $elementType = Craft::$app->elements->getElementTypeById($customFieldHandleEntryId);
 
-        // set path to empty
-        $path = '';
-        // set default position key
+        // set defaults
         $defaultPosition = 1;
-        // set empty array
-        $homeArray = [];
-        $output = [];
+        $path = '';
+        $homeArray = array();
+        $output = array();
         $element = '';
 
         // reset baseURL for custom homeURL
