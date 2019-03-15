@@ -72,7 +72,7 @@ array (size=4)
 
 With this array, you can now use Twig to define the look and apply additional logic. Here's a basic example:
 
-```
+```twig
 {% set breadcrumb = craft.breadcrumb.config %}
 
 {% if breadcrumb %}
@@ -118,7 +118,7 @@ Breadcrumb has the following settings available:
 
 Example setting configuration:
 
-```
+```twig
 {# If entry variable is empty, try category, tag and finally return null #}
 {# This works with customFieldHandleEntryId and customFieldHandle #}
 {% set entry = entry ?? category ?? tag ?? null %}
