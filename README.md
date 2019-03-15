@@ -112,7 +112,7 @@ Breadcrumb has the following settings available:
 
 - **customFieldHandleEntryId** `(int, optional, default '0')`: Required for customFieldHandle.
 
-- **lastSegmentTitle** `(string, optional, default 'null')`: Customise the title in the last segment of the breadcrumb. Use this setting in favour of customFieldHandleEntryId and customFieldHandle.
+- **lastSegmentTitle** `(string, optional, default 'null')`: Customise the title in the last segment of the breadcrumb. Use this setting in favour of customFieldHandleEntryId and customFieldHandle. lastSegmentTitle will take priority over customFieldHandle.
 
 - **limit** `(int, optional, default 'null')`: Limit the amount of crumbs returned in the Breadcrumb array.
 
