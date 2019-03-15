@@ -4,13 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 1.0.4 - TBC
+## 1.0.4 - 2019-03-15
 ### Added
 - lastSegmentTitle which allows you to pass in a string to customise the title in the last segment of the breadcrumb
 
 ### Changed
 - how defaults are set
 - homeUrl to customBaseUrl which reflects the setting better. homeUrl is still supported.
+- Simplified null coalescing operators
 
 ## 1.0.3 - 2019-03-06
 ### Fixed
