@@ -129,7 +129,7 @@ Example setting configuration:
         homeTitle: 'My Website',
         skipUrlSegment: 2,
         customBaseUrl: 'https://example.com/123',
-        customFieldHandleEntryId: entry.id,
+        customFieldHandleEntryId: entry.id ?? null,
         customFieldHandle: 'myCustomField',
         limit: '3'
     }
