@@ -33,8 +33,7 @@ class BreadcrumbService extends Component
     {
         // get and set settings array
         $homeTitle = $settings['homeTitle'] ?? 'Home';
-        $homeUrl = $settings['homeUrl'] ?? null;
-        $customBaseUrl = $settings['customBaseUrl'] ?? null;
+        $customBaseUrl = $settings['homeUrl'] ?? $settings['customBaseUrl'] ?? null;
         $skipUrlSegment = $settings['skipUrlSegment'] ?? null;
         $customFieldHandleEntryId = $settings['customFieldHandleEntryId'] ?? 0;
         $customFieldHandle = $settings['customFieldHandle'] ?? null;
@@ -59,8 +58,8 @@ class BreadcrumbService extends Component
         $element = '';
 
         // reset baseURL for custom customBaseUrl
-        if ($homeUrl || $customBaseUrl) {
-            $baseUrl = $homeUrl ?? $customBaseUrl;
+        if ($customBaseUrl) {
+            $baseUrl = $customBaseUrl;
         }
 
         // for each segment in array
