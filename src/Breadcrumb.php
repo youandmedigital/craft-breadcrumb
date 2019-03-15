@@ -25,7 +25,7 @@ use yii\base\Event;
  *
  * @author    You & Me Digital
  * @package   Breadcrumb
- * @since     1.0.3
+ * @since     1.0.4
  *
  * @property  BreadcrumbServiceService $breadcrumbService
  */
