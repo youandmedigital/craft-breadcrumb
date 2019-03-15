@@ -46,7 +46,7 @@ https://mysite.local/posts/categories/example-category
 ```
 
 Breadcrumb would generate the following array:
-```
+```array
 array (size=4)
   0 =>
     array (size=3)
