@@ -38,6 +38,7 @@ class BreadcrumbService extends Component
         $customFieldHandleEntryId = isset($settings['customFieldHandleEntryId']) ? $settings['customFieldHandleEntryId'] : 0;
         $customFieldHandle = isset($settings['customFieldHandle']) ? $settings['customFieldHandle'] : null;
         $limit = isset($settings['limit']) ? $settings['limit'] : null;
+        $lastSegmentTitle = isset($settings['lastSegmentTitle']) ? $settings['lastSegmentTitle'] : null;
 
         // get each segment in the given URL
         $urlArray = Craft::$app->request->getSegments();
@@ -59,19 +60,15 @@ class BreadcrumbService extends Component
         // reset baseURL for custom homeURL
         if ($homeUrl) {
             $baseUrl = $homeUrl;
-
         }
 
         // for each segment in array
         foreach ($urlArray as $segment) {
-
             // build path from current segment
             $path .= '/' . $segment;
             $title = ucwords(str_replace(array('-', '_'), ' ', $segment));
-
             // output new array... set title and build url
             $output[] = array('title' => $title, 'url' => $baseUrl . $path);
-
         }
 
         // create array for the home crumb...
@@ -82,14 +79,12 @@ class BreadcrumbService extends Component
         // add position key/value to breadcrumbArray
         foreach ($breadcrumbArray as $position => &$val) {
             $val['position'] = $defaultPosition++;
-
         }
 
         // remove segment from array
         if ($skipUrlSegment) {
             $index = $skipUrlSegment - 1;
             unset($breadcrumbArray[$index]);
-
         }
 
         // set custom field for an Entry element
@@ -100,7 +95,6 @@ class BreadcrumbService extends Component
         ) {
             // get entry model based on id
             $element = Entry::find()->id($customFieldHandleEntryId)->one();
-
         }
 
         // set custom field for an Category element
@@ -111,7 +105,6 @@ class BreadcrumbService extends Component
         ) {
             // get entry model based on id
             $element = Category::find()->id($customFieldHandleEntryId)->one();
-
         }
 
         // if the element returns a value...
@@ -122,13 +115,21 @@ class BreadcrumbService extends Component
             $key = key($breadcrumbArray);
             // set title with new value
             $breadcrumbArray[$key]['title'] = $element->$customFieldHandle;
+        }
 
+        // set last segment title
+        if ($lastSegmentTitle) {
+            // move internal pointer to the end of the array
+            end($breadcrumbArray);
+            // fetch last key in array...
+            $key = key($breadcrumbArray);
+            // set title with new value
+            $breadcrumbArray[$key]['title'] = $lastSegmentTitle;
         }
 
         // limit and return the amount of results if set
         if ($limit) {
             return array_slice($breadcrumbArray, 0, $limit);
-
         }
 
         // return output

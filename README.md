@@ -112,6 +112,8 @@ Breadcrumb has the following settings available:
 
 - **customFieldHandle** `(string, optional, default 'null')`: Specify a field that contains a custom title. This only works for the last item in the breadcrumb array. Requires customFieldHandleEntryId to work.
 
+- **lastSegmentTitle** `(string, optional, default 'null')`: Customise the title of the last segment in the breadcrumb.
+
 - **limit** `(int, optional, default 'null')`: Limit the amount of crumbs returned in the Breadcrumb array.
 
 Example setting configuration:

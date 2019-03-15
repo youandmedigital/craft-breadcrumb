@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 1.0.4 - TBC
+### Added
+- lastSegmentTitle which allows you to pass in a string to customise the title in the last segment of the breadcrumb
+
 ### Changed
 - how defaults are set
 
