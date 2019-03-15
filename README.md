@@ -102,17 +102,17 @@ This example uses the [Twig loop variable](https://twig.symfony.com/doc/2.x/tags
 
 Breadcrumb has the following settings available:
 
-- **homeTitle** `(string, optional, default 'Home')`: Customise the title of the first item in the breadcrumb.
+- **homeTitle** `(string, optional, default 'Home')`: Customise the title in the first segment of the breadcrumb.
 
 - **customBaseUrl** `(string, optional, default '@baseUrl')`: Set a custom base URL.
 
 - **skipUrlSegment** `(int, optional, default 'null')`: Remove a segment from the Breadcrumb array. For example, if you have the URL `https://mysite.local/posts/categories/example-category` and wanted to remove `categories` from the array, you would enter `3` as the value.
 
-- **customFieldHandleEntryId** `(int, optional, default '0')`: Required for customFieldHandle. Nothing to customise.
+- **customFieldHandle** `(string, optional, default 'null')`: Specify a field to customise the title in the last segment of the breadcrumb. Requires the setting customFieldHandleEntryId to work.
 
-- **customFieldHandle** `(string, optional, default 'null')`: Specify a field that contains a custom title. This only works for the last item in the breadcrumb array. Requires customFieldHandleEntryId to work.
+- **customFieldHandleEntryId** `(int, optional, default '0')`: Required for customFieldHandle.
 
-- **lastSegmentTitle** `(string, optional, default 'null')`: Customise the title of the last segment in the breadcrumb.
+- **lastSegmentTitle** `(string, optional, default 'null')`: Customise the title in the last segment of the breadcrumb. Use this setting in favour of customFieldHandleEntryId and customFieldHandle.
 
 - **limit** `(int, optional, default 'null')`: Limit the amount of crumbs returned in the Breadcrumb array.
 
@@ -127,8 +127,8 @@ Example setting configuration:
 {% set settings =
     {
         homeTitle: 'My Website',
-        customBaseUrl: 'https://example.com/123',
         skipUrlSegment: 2,
+        customBaseUrl: 'https://example.com/123',
         customFieldHandleEntryId: entry.id,
         customFieldHandle: 'myCustomField',
         limit: '3'
