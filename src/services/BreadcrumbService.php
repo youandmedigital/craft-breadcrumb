@@ -32,14 +32,14 @@ class BreadcrumbService extends Component
     public function buildBreadcrumb($settings) : array
     {
         // get and set settings array
-        $homeTitle = isset($settings['homeTitle']) ? $settings['homeTitle'] : 'Home';
-        $homeUrl = isset($settings['homeUrl']) ? $settings['homeUrl'] : null;
-        $customBaseUrl = isset($settings['customBaseUrl']) ? $settings['customBaseUrl'] : null;
-        $skipUrlSegment = isset($settings['skipUrlSegment']) ? $settings['skipUrlSegment'] : null;
-        $customFieldHandleEntryId = isset($settings['customFieldHandleEntryId']) ? $settings['customFieldHandleEntryId'] : 0;
-        $customFieldHandle = isset($settings['customFieldHandle']) ? $settings['customFieldHandle'] : null;
-        $limit = isset($settings['limit']) ? $settings['limit'] : null;
-        $lastSegmentTitle = isset($settings['lastSegmentTitle']) ? $settings['lastSegmentTitle'] : null;
+        $homeTitle = $settings['homeTitle'] ?? 'Home';
+        $homeUrl = $settings['homeUrl'] ?? null;
+        $customBaseUrl = $settings['customBaseUrl'] ?? null;
+        $skipUrlSegment = $settings['skipUrlSegment'] ?? null;
+        $customFieldHandleEntryId = $settings['customFieldHandleEntryId'] ?? 0;
+        $customFieldHandle = $settings['customFieldHandle'] ?? null;
+        $limit = $settings['limit'] ?? null;
+        $lastSegmentTitle = $settings['lastSegmentTitle'] ?? null;
 
         // get each segment in the given URL
         $urlArray = Craft::$app->request->getSegments();
