@@ -104,7 +104,7 @@ Breadcrumb has the following settings available:
 
 - **homeTitle** `(string, optional, default 'Home')`: Customise the title of the first item in the breadcrumb.
 
-- **homeUrl** `(string, optional, default '@baseUrl')`: Set a custom base URL.
+- **customBaseUrl** `(string, optional, default '@baseUrl')`: Set a custom base URL.
 
 - **skipUrlSegment** `(int, optional, default 'null')`: Remove a segment from the Breadcrumb array. For example, if you have the URL `https://mysite.local/posts/categories/example-category` and wanted to remove `categories` from the array, you would enter `3` as the value.
 
@@ -127,7 +127,7 @@ Example setting configuration:
 {% set settings =
     {
         homeTitle: 'My Website',
-        homeUrl: 'https://example.com/123',
+        customBaseUrl: 'https://example.com/123',
         skipUrlSegment: 2,
         customFieldHandleEntryId: entry.id,
         customFieldHandle: 'myCustomField',

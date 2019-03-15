@@ -34,6 +34,7 @@ class BreadcrumbService extends Component
         // get and set settings array
         $homeTitle = isset($settings['homeTitle']) ? $settings['homeTitle'] : 'Home';
         $homeUrl = isset($settings['homeUrl']) ? $settings['homeUrl'] : null;
+        $customBaseUrl = isset($settings['customBaseUrl']) ? $settings['customBaseUrl'] : null;
         $skipUrlSegment = isset($settings['skipUrlSegment']) ? $settings['skipUrlSegment'] : null;
         $customFieldHandleEntryId = isset($settings['customFieldHandleEntryId']) ? $settings['customFieldHandleEntryId'] : 0;
         $customFieldHandle = isset($settings['customFieldHandle']) ? $settings['customFieldHandle'] : null;
@@ -57,9 +58,9 @@ class BreadcrumbService extends Component
         $output = array();
         $element = '';
 
-        // reset baseURL for custom homeURL
-        if ($homeUrl) {
-            $baseUrl = $homeUrl;
+        // reset baseURL for custom customBaseUrl
+        if ($homeUrl || $customBaseUrl) {
+            $baseUrl = $homeUrl ?? $customBaseUrl;
         }
 
         // for each segment in array

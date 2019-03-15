@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Changed
 - how defaults are set
+- homeUrl to customBaseUrl which reflects the setting better. homeUrl is still supported.
 
 ## 1.0.3 - 2019-03-06
 ### Fixed
