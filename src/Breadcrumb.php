@@ -39,7 +39,7 @@ class Breadcrumb extends Plugin
     // Public Properties
     // =========================================================================
 
-    public $schemaVersion = '1.0.4';
+    public $schemaVersion = '1.2';
 
     // Public Methods
     // =========================================================================

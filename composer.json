@@ -2,7 +2,7 @@
     "name": "youandmedigital/breadcrumb",
     "description": "Generate a simple breadcrumb from a URL",
     "type": "craft-plugin",
-    "version": "1.0.4",
+    "version": "1.2",
     "keywords": [
         "craft",
         "cms",
