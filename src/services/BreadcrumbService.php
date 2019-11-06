@@ -22,7 +22,7 @@ use craft\base\Component;
  *
  * @author    You & Me Digital
  * @package   Breadcrumb
- * @since     2.0
+ * @since     1.2
  */
 class BreadcrumbService extends Component
 {
@@ -31,7 +31,7 @@ class BreadcrumbService extends Component
 
     public function buildBreadcrumb($settings) : array
     {
-        // get and set settings array
+        // get and set settings
         $homeTitle = $settings['homeTitle'] ?? 'Home';
         $customBaseUrl = $settings['homeUrl'] ?? $settings['customBaseUrl'] ?? null;
         $skipUrlSegment = $settings['skipUrlSegment'] ?? null;
@@ -40,10 +40,10 @@ class BreadcrumbService extends Component
         $limit = $settings['limit'] ?? null;
         $lastSegmentTitle = $settings['lastSegmentTitle'] ?? null;
 
-        // get each segment in the given URL
+        // turn each segment in the url into an array
         $urlArray = Craft::$app->request->getSegments();
 
-        // get site baseUrl value
+        // get site baseUrl
         $currentSite = Craft::$app->getSites()->getCurrentSite();
         $baseUrl = rtrim($currentSite->getBaseUrl(),'/');
 
@@ -54,24 +54,24 @@ class BreadcrumbService extends Component
         $output = array();
         $element = '';
 
-        // reset baseURL for custom customBaseUrl
+        // set custom baseUrl
         if ($customBaseUrl) {
             $baseUrl = $customBaseUrl;
         }
 
-        // for each segment in array
+        // for each segment in the array
         foreach ($urlArray as $segment) {
 
             // check to see if the segment is an element
             $isElement = Craft::$app->elements->getElementByUri($segment);
 
-            // if isElement returns an element
+            // if isElement returns true
             if ($isElement) {
                 // set title to customFieldHandle if it returns a value, otherwise fallback to element title
                 $title = $isElement->$customFieldHandle ? $isElement->$customFieldHandle : $isElement->title;
             // otherwise, we're not dealing with an element
             } else {
-                // build the title from the url segment
+                // we're out of options. build the title from the url segment
                 // cleanup any unwanted characters
                 $title = str_replace(array('-', '_'), ' ', $segment);
             }
@@ -92,7 +92,7 @@ class BreadcrumbService extends Component
             $val['position'] = $defaultPosition++;
         }
 
-        // remove segment from array
+        // skip url segment
         if ($skipUrlSegment) {
             $index = $skipUrlSegment - 1;
             unset($breadcrumbArray[$index]);
