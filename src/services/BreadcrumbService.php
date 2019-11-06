@@ -22,7 +22,7 @@ use craft\base\Component;
  *
  * @author    You & Me Digital
  * @package   Breadcrumb
- * @since     1.2
+ * @since     2.0
  */
 class BreadcrumbService extends Component
 {
@@ -64,9 +64,23 @@ class BreadcrumbService extends Component
 
         // for each segment in array
         foreach ($urlArray as $segment) {
+
+            // check to see if the segment is an element
+            $isElement = Craft::$app->elements->getElementByUri($segment);
+
+            // if isElement returns an element
+            if ($isElement) {
+                // set title to customFieldHandle if it returns a value, otherwise fallback to element title
+                $title = $isElement->$customFieldHandle ? $isElement->$customFieldHandle : $isElement->title;
+            // otherwise, we're not dealing with an element
+            } else {
+                // build the title from the url segment
+                // cleanup any unwanted characters
+                $title = str_replace(array('-', '_'), ' ', $segment);
+            }
+
             // build path from current segment
             $path .= '/' . $segment;
-            $title = ucwords(str_replace(array('-', '_'), ' ', $segment));
             // output new array... set title and build url
             $output[] = array('title' => $title, 'url' => $baseUrl . $path);
         }
