@@ -98,7 +98,7 @@ class BreadcrumbService extends Component
             unset($breadcrumbArray[$index]);
         }
 
-        // set last segment title
+        // last segment title
         if ($lastSegmentTitle) {
             // move internal pointer to the end of the array
             end($breadcrumbArray);
@@ -108,12 +108,12 @@ class BreadcrumbService extends Component
             $breadcrumbArray[$key]['title'] = $lastSegmentTitle;
         }
 
-        // limit and return the amount of results if set
+        // limit and return the amount of results
         if ($limit) {
             return array_slice($breadcrumbArray, 0, $limit);
         }
 
-        // return output
+        // return breadcrumb array
         return $breadcrumbArray;
     }
 }
