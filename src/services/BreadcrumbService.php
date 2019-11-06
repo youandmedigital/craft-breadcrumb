@@ -47,9 +47,6 @@ class BreadcrumbService extends Component
         $currentSite = Craft::$app->getSites()->getCurrentSite();
         $baseUrl = rtrim($currentSite->getBaseUrl(),'/');
 
-        // get element type
-        $elementType = Craft::$app->elements->getElementTypeById($customFieldHandleEntryId);
-
         // set defaults
         $defaultPosition = 1;
         $path = '';
@@ -99,6 +96,16 @@ class BreadcrumbService extends Component
         if ($skipUrlSegment) {
             $index = $skipUrlSegment - 1;
             unset($breadcrumbArray[$index]);
+        }
+
+        // if the element returns a value...
+        if (!empty($element->$customFieldHandle)) {
+            // move internal pointer to the end of the array
+            end($breadcrumbArray);
+            // fetch last key in array...
+            $key = key($breadcrumbArray);
+            // set title with new value
+            $breadcrumbArray[$key]['title'] = $element->$customFieldHandle;
         }
 
         // set last segment title
