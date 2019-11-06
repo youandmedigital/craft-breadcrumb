@@ -98,16 +98,6 @@ class BreadcrumbService extends Component
             unset($breadcrumbArray[$index]);
         }
 
-        // if the element returns a value...
-        if (!empty($element->$customFieldHandle)) {
-            // move internal pointer to the end of the array
-            end($breadcrumbArray);
-            // fetch last key in array...
-            $key = key($breadcrumbArray);
-            // set title with new value
-            $breadcrumbArray[$key]['title'] = $element->$customFieldHandle;
-        }
-
         // set last segment title
         if ($lastSegmentTitle) {
             // move internal pointer to the end of the array
