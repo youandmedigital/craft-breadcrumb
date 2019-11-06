@@ -101,26 +101,6 @@ class BreadcrumbService extends Component
             unset($breadcrumbArray[$index]);
         }
 
-        // set custom field for an Entry element
-        if (
-            ($elementType == 'craft\elements\Entry') &&
-            ($customFieldHandleEntryId != 0) &&
-            (!empty($customFieldHandle))
-        ) {
-            // get entry model based on id
-            $element = Entry::find()->id($customFieldHandleEntryId)->one();
-        }
-
-        // set custom field for an Category element
-        if (
-            ($elementType == 'craft\elements\Category') &&
-            ($customFieldHandleEntryId != 0) &&
-            (!empty($customFieldHandle))
-        ) {
-            // get entry model based on id
-            $element = Category::find()->id($customFieldHandleEntryId)->one();
-        }
-
         // if the element returns a value...
         if (!empty($element->$customFieldHandle)) {
             // move internal pointer to the end of the array
