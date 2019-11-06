@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 1.2 TBC
+### Changed
+- Crumbs are now generated from customFieldHandle which will fallback to title if customFieldHandle is empty. If a segment in the breadcrumb is not an element the crumb title will be generated from the slug
+
+### Removed
+- Automatic capitalization of crumbs has now been removed. If you need capitalization or any other text formatting use CSS text-transform
 
 ## 1.0.4 - 2019-03-15
 ### Added
