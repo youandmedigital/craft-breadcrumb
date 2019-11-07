@@ -22,7 +22,7 @@ use craft\base\Component;
  *
  * @author    You & Me Digital
  * @package   Breadcrumb
- * @since     1.1.0
+ * @since     1.1.1
  */
 class BreadcrumbService extends Component
 {
@@ -52,7 +52,6 @@ class BreadcrumbService extends Component
         $path = '';
         $homeArray = array();
         $output = array();
-        $element = '';
 
         // set custom baseUrl
         if ($customBaseUrl) {
