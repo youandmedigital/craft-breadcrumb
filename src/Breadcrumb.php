@@ -25,7 +25,7 @@ use yii\base\Event;
  *
  * @author    You & Me Digital
  * @package   Breadcrumb
- * @since     1.1.2
+ * @since     1.1.0
  *
  * @property  BreadcrumbServiceService $breadcrumbService
  */
@@ -39,7 +39,7 @@ class Breadcrumb extends Plugin
     // Public Properties
     // =========================================================================
 
-    public $schemaVersion = '1.1.2';
+    public $schemaVersion = '1.1.0';
 
     // Public Methods
     // =========================================================================
