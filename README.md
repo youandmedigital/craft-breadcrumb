@@ -56,7 +56,7 @@ array (size=4)
       'position' => int 4
 ```
 
-Use Twig to define the presentation and apply additional logic. Here's a basic example with no settings applied:
+Use Twig to define the presentation and apply additional logic. Use whatever markup that suits your project best. Here's a basic example with no settings applied:
 
 ```twig
 {% set breadcrumb = craft.breadcrumb.config %}
@@ -136,7 +136,7 @@ Example setup with settings applied:
 {% set breadcrumb = craft.breadcrumb.config(settings) %}
 ```
 
-## Breadcrumb Roadmap
+## Roadmap
 
 PR & FR welcome!
 
