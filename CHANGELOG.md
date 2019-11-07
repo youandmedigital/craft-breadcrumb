@@ -4,10 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 1.1 TBC
+## 1.1 - TBC
 > {warning} Crumbs are now generated from the following fields in order of priority 1) customFieldHandle, 2) title, 3) slug  
 
-> {warning} Crumbs generated from a slug will no longer appear capitalized. Please use CSS text-transform if you want to capitalize crumb titles generated from slugs
+> {warning} Crumbs generated from a slug will no longer appear capitalized. Please use CSS text-transform if you want to capitalize crumb titles
 
 ### Changed
 - customFieldHandle setting now applies to all crumbs in the breadcrumb array, not just the last
