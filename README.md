@@ -4,7 +4,7 @@
 
 # Breadcrumb for Craft 3.1
 
-Generate a simple breadcrumb from a URL.
+Generate a simple breadcrumb.
 
 ## Requirements
 
