@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.1.1 - 2019-11-07
+> {warning} Since v1.1, Crumb titles are now generated from the following fields in order of priority 1) customFieldHandle, 2) title, 3) URL segment  
+
+> {warning} Since v1.1, Crumbs generated from a URL segment will no longer appear capitalized. Please use CSS text-transform if you want to capitalize crumb titles
+
+### Added
+- Date to changelog for 1.1 release
+
 ## 1.1 - 2019-11-07
 > {warning} Crumb titles are now generated from the following fields in order of priority 1) customFieldHandle, 2) title, 3) URL segment  
 
