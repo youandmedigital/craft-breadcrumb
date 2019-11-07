@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 1.1 TBC
 > {warning} Crumbs are now generated from the following fields in order of priority 1) customFieldHandle, 2) title, 3) slug  
 
-> {warning} Crumbs generated from a slug will no longer be automatically capitalized. Please use CSS text-transform if you want to capitalize slug generated crumb titles
+> {warning} Crumbs generated from a slug will no longer appear capitalized. Please use CSS text-transform if you want to capitalize crumb titles generated from slugs
 
 ### Changed
 - customFieldHandle setting now applies to all crumbs in the breadcrumb array, not just the last
