@@ -42,6 +42,7 @@ class BreadcrumbService extends Component
 
         // turn each segment in the url into an array
         $urlArray = Craft::$app->request->getSegments();
+        $pathInfo = Craft::$app->request->pathInfo;
 
         // get site baseUrl
         $currentSite = Craft::$app->getSites()->getCurrentSite();
@@ -62,8 +63,11 @@ class BreadcrumbService extends Component
         // for each segment in the array
         foreach ($urlArray as $segment) {
 
+            // build path from current segment
+            $path .= '/' . $segment;
+
             // check to see if the segment is an element
-            $isElement = Craft::$app->elements->getElementByUri($segment);
+            $isElement = Craft::$app->elements->getElementByUri(ltrim($path, '/'));
 
             // if isElement returns true
             if ($isElement) {
@@ -76,8 +80,6 @@ class BreadcrumbService extends Component
                 $title = str_replace(array('-', '_'), ' ', $segment);
             }
 
-            // build path from current segment
-            $path .= '/' . $segment;
             // output new array... set title and build url
             $output[] = array('title' => $title, 'url' => $baseUrl . $path);
         }
