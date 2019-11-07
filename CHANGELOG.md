@@ -16,6 +16,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Removed
 - Automatic capitalization from crumbs that are generated from a slug
 
+### Fixed
+- skipUrlSegment now works more consistently
+
 ## 1.0.4 - 2019-03-15
 ### Added
 - lastSegmentTitle which allows you to pass in a string to customise the title in the last segment of the breadcrumb
