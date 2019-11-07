@@ -42,7 +42,6 @@ class BreadcrumbService extends Component
 
         // turn each segment in the url into an array
         $urlArray = Craft::$app->request->getSegments();
-        $pathInfo = Craft::$app->request->pathInfo;
 
         // get site baseUrl
         $currentSite = Craft::$app->getSites()->getCurrentSite();
