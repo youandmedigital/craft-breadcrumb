@@ -71,8 +71,19 @@ class BreadcrumbService extends Component
 
             // if isElement returns true
             if ($isElement) {
-                // set title to customFieldHandle if it returns a value, otherwise fallback to element title
-                $title = $isElement->$customFieldHandle ? $isElement->$customFieldHandle : $isElement->title;
+
+                // if custom fields are set in settings...
+                if (
+                    ($customFieldHandleEntryId != 0) &&
+                    (!empty($customFieldHandle))
+                ) {
+                    // set title to customFieldHandle if it returns a value, otherwise fallback to element title
+                    $title = $isElement->$customFieldHandle ? $isElement->$customFieldHandle : $isElement->title;
+                // otherwise just use the title
+                } else {
+                    $title = $isElement->title;
+                }
+
             // otherwise, we're not dealing with an element
             } else {
                 // we're out of options. build the title from the url segment
