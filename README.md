@@ -24,7 +24,9 @@ composer require youandmedigital/breadcrumb
 
 ## Breadcrumb Overview
 
-This plugin will generate a simple breadcrumb array that you can style via Twig. It generates crumb titles from the following fields in order of priority 1) customFieldHandle, 2) title, 3) slug. It works across different element types and is multisite friendly.
+This plugin will generate a simple breadcrumb array that you can style via Twig. It will generate crumb titles from customFieldHandle if set, falling back to the title field. If none of these fields are present, it will generate the crumb title from the slug field.
+
+Breadcrumb works across different element types and is multisite friendly. It can even be used to generate `BreadcrumbList` schema.
 
 Example Breadcrumb output:
 
@@ -52,7 +54,7 @@ array (size=4)
       'position' => int 4
 ```
 
-You can now use Twig to define the look and apply additional logic. Here's a basic example with no settings applied:
+Use Twig to define the presentation and apply additional logic. Here's a basic example with no settings applied:
 
 ```twig
 {% set breadcrumb = craft.breadcrumb.config %}
@@ -83,37 +85,44 @@ Breadcrumb has the following settings available:
 
 **homeTitle**
 `(string, optional, default 'Home')`
+
 Customise the title in the first segment of the breadcrumb.
 
 **customBaseUrl**
 `(string, optional, default '@baseUrl')`
+
 Set a custom base URL for each crumb in the Breadcrumb array. Use a fully qualified URL without the trailing slash.
 
 **skipUrlSegment**
 `(int, optional, default 'null')`
+
 Skip a level or segment from the Breadcrumb array. For example, if you had the following URL `https://mysite.local/posts/categories/example-category` and you entered `3` as the value, it would remove `categories` from the array.
 
 **customFieldHandle**
 `(string, optional, default 'null')`
+
 Specify a custom field handle to generate each crumb title. Requires the setting customFieldHandleEntryId to work.
 
 **customFieldHandleEntryId**
 `(int, optional, default '0')`
+
 Required for customFieldHandle.
 
 **lastSegmentTitle**
 `(string, optional, default 'null')`
+
 Customise the last crumb title in the Breadcrumb array. Useful when using custom routing.
 
 **limit**
 `(int, optional, default 'null')`
+
 Limit the amount of crumbs returned in the Breadcrumb array.
 
 Example setting configuration:
 
 ```twig
 {# If entry is empty, try category, tag and finally return null #}
-{% set entry = entry ?? category ?? tag ?? null %}
+{% set element = entry ?? category ?? tag ?? null %}
 
 {# Breadcrumb settings array #}
 {% set settings =
@@ -121,9 +130,9 @@ Example setting configuration:
         homeTitle: 'My Website',
         skipUrlSegment: 2,
         customBaseUrl: 'https://example.com/123',
-        customFieldHandleEntryId: entry.id,
+        customFieldHandleEntryId: element.id,
         customFieldHandle: 'myCustomField',
-        lastSegmentTitle: entry.customMenuTitle ?? entry.title,
+        lastSegmentTitle: element.customMenuTitle ?? element.title,
         limit: '3'
     }
 %}
