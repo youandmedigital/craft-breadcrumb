@@ -45,7 +45,7 @@ class BreadcrumbService extends Component
 
         // get site baseUrl
         $currentSite = Craft::$app->getSites()->getCurrentSite();
-        $baseUrl = rtrim($currentSite->getBaseUrl(),'/');
+        $baseUrl = rtrim($currentSite->getBaseUrl(), '/');
 
         // set defaults
         $defaultPosition = 1;
