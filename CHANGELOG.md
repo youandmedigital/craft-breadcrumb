@@ -4,12 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 1.2 TBC
+## 1.1 TBC
+> {warning} Crumbs are now generated from the following fields in order of priority 1) customFieldHandle, 2) title, 3) slug  
+
+> {warning} Crumbs generated from a slug will no longer be automatically capitalized. Please use CSS text-transform if you want to capitalize slug generated crumb titles
+
 ### Changed
-- Crumbs are now generated from customFieldHandle which will fallback to title if customFieldHandle is empty. If a segment in the breadcrumb is not an element the crumb title will be generated from the slug
+- customFieldHandle setting now applies to all crumbs in the breadcrumb array, not just the last
+- Crumbs are now generated from the customFieldHandle setting which will fallback to title if customFieldHandle is empty. If a crumb in the breadcrumb is not an element the crumb title will be generated from the slug
 
 ### Removed
-- Automatic capitalization of crumbs has now been removed. If you need capitalization or any other text formatting use CSS text-transform
+- Automatic capitalization from crumbs that are generated from a slug
 
 ## 1.0.4 - 2019-03-15
 ### Added
@@ -17,7 +22,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Changed
 - how defaults are set
-- homeUrl to customBaseUrl which reflects the setting better. homeUrl is still supported.
+- homeUrl to customBaseUrl which reflects the setting better. homeUrl is still supported
 - Simplified null coalescing operators
 
 ## 1.0.3 - 2019-03-06
