@@ -14,7 +14,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Crumbs are now generated from the customFieldHandle setting which will fallback to title if customFieldHandle is empty. If a crumb in the breadcrumb is not an element the crumb title will be generated from the slug
 
 ### Removed
-- Automatic capitalization from crumbs that are generated from a slug
+- Automatic capitalization of crumbs that are generated from a slug
 
 ### Fixed
 - skipUrlSegment now works more consistently
