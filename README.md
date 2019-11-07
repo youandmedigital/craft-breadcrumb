@@ -14,38 +14,20 @@ This plugin requires Craft CMS 3.1 or later.
     <img src="https://raw.githubusercontent.com/youandmedigital/craft-breadcrumb/master/src/resources/plugin-banner.jpg" alt="Breadcrumb from URL" />
 </p>
 
-## Breadcrumb might not be right for your project...
-
-- If you don't have templates defined for each URL segment
-
-- If your URLs don't make sense to a human
-
-- If you want to customise each title in the breadcrumb
-
 ## Installation
 
-To install the plugin, follow these instructions.
+To install the plugin, search for "Breadcrumb" in the Craft Plugin Store, or install manually using composer.
 
-1. Open your terminal and go to your Craft project:
-
-        cd /path/to/project
-
-2. Then tell Composer to load the plugin:
-
-        composer require youandmedigital/breadcrumb
-
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Breadcrumb.
+```
+composer require youandmedigital/breadcrumb
+```
 
 ## Breadcrumb Overview
 
-Generate a simple breadcrumb based on segments in your URL. It's perfect for websites that have descriptive and meaningful URLs.
+This plugin will generate a simple breadcrumb array that you can style via Twig. It generates crumb titles from the following fields in order of priority 1) customFieldHandle, 2) title, 3) slug. It works across different element types and is multisite friendly.
 
-If your website URL looked like this:
-```
-https://mysite.local/posts/categories/example-category
-```
+Example Breadcrumb output:
 
-Breadcrumb would generate the following array:
 ```array
 array (size=4)
   0 =>
@@ -70,7 +52,7 @@ array (size=4)
       'position' => int 4
 ```
 
-With this array, you can now use Twig to define the look and apply additional logic. Here's a basic example:
+You can now use Twig to define the look and apply additional logic. Here's a basic example with no settings applied:
 
 ```twig
 {% set breadcrumb = craft.breadcrumb.config %}
@@ -95,32 +77,42 @@ With this array, you can now use Twig to define the look and apply additional lo
 </div>
 {% endif %}
 ```
-
-This example uses the [Twig loop variable](https://twig.symfony.com/doc/2.x/tags/for.html#the-loop-variable) to set the last item in the crumb.
-
 ## Configuring Breadcrumb
 
 Breadcrumb has the following settings available:
 
-- **homeTitle** `(string, optional, default 'Home')`: Customise the title in the first segment of the breadcrumb.
+**homeTitle**
+`(string, optional, default 'Home')`
+Customise the title in the first segment of the breadcrumb.
 
-- **customBaseUrl** `(string, optional, default '@baseUrl')`: Set a custom base URL.
+**customBaseUrl**
+`(string, optional, default '@baseUrl')`
+Set a custom base URL for each crumb in the Breadcrumb array. Use a fully qualified URL without the trailing slash.
 
-- **skipUrlSegment** `(int, optional, default 'null')`: Remove a segment from the Breadcrumb array. For example, if you have the URL `https://mysite.local/posts/categories/example-category` and wanted to remove `categories` from the array, you would enter `3` as the value.
+**skipUrlSegment**
+`(int, optional, default 'null')`
+Skip a level or segment from the Breadcrumb array. For example, if you had the following URL `https://mysite.local/posts/categories/example-category` and you entered `3` as the value, it would remove `categories` from the array.
 
-- **customFieldHandle** `(string, optional, default 'null')`: Specify a field to customise the title in the last segment of the breadcrumb. Requires the setting customFieldHandleEntryId to work.
+**customFieldHandle**
+`(string, optional, default 'null')`
+Specify a custom field handle to generate each crumb title. Requires the setting customFieldHandleEntryId to work.
 
-- **customFieldHandleEntryId** `(int, optional, default '0')`: Required for customFieldHandle.
+**customFieldHandleEntryId**
+`(int, optional, default '0')`
+Required for customFieldHandle.
 
-- **lastSegmentTitle** `(string, optional, default 'null')`: Customise the title in the last segment of the breadcrumb. Use this setting in favour of customFieldHandleEntryId and customFieldHandle. lastSegmentTitle will take priority over customFieldHandle.
+**lastSegmentTitle**
+`(string, optional, default 'null')`
+Customise the last crumb title in the Breadcrumb array. Useful when using custom routing.
 
-- **limit** `(int, optional, default 'null')`: Limit the amount of crumbs returned in the Breadcrumb array.
+**limit**
+`(int, optional, default 'null')`
+Limit the amount of crumbs returned in the Breadcrumb array.
 
 Example setting configuration:
 
 ```twig
-{# If entry variable is empty, try category, tag and finally return null #}
-{# This works with customFieldHandleEntryId and customFieldHandle #}
+{# If entry is empty, try category, tag and finally return null #}
 {% set entry = entry ?? category ?? tag ?? null %}
 
 {# Breadcrumb settings array #}
@@ -129,8 +121,9 @@ Example setting configuration:
         homeTitle: 'My Website',
         skipUrlSegment: 2,
         customBaseUrl: 'https://example.com/123',
-        customFieldHandleEntryId: entry.id ?? null,
+        customFieldHandleEntryId: entry.id,
         customFieldHandle: 'myCustomField',
+        lastSegmentTitle: entry.customMenuTitle ?? entry.title,
         limit: '3'
     }
 %}
@@ -140,10 +133,6 @@ Example setting configuration:
 ```
 
 ## Breadcrumb Roadmap
-
-Some things to do, and ideas for potential features:
-
-* Use Yii array helper where possible
 
 PR & FR welcome!
 
