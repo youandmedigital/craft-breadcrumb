@@ -24,7 +24,7 @@ composer require youandmedigital/breadcrumb
 
 ## Overview
 
-This plugin will generate a simple breadcrumb array that you can style via Twig. It will generate crumb titles from customFieldHandle if set, falling back to the title field. If none of these fields are present, it will generate the crumb title from the slug field.
+This plugin will generate a simple breadcrumb array that you can style via Twig. It will generate crumb titles from the customFieldHandle setting if set, falling back to the title field. If none of these fields are present, it will generate the crumb title from the URL segment.
 
 Breadcrumb works across different element types and is multisite friendly. It can even be used to generate `BreadcrumbList` [schema](https://developers.google.com/search/docs/data-types/breadcrumb#definitions).
 

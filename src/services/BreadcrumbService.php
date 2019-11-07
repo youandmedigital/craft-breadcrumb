@@ -65,7 +65,7 @@ class BreadcrumbService extends Component
             // build path from current segment
             $path .= '/' . $segment;
 
-            // check to see if the segment is an element
+            // check to see if the segment belongs to an element
             $isElement = Craft::$app->elements->getElementByUri(ltrim($path, '/'));
 
             // if isElement returns true
@@ -85,12 +85,12 @@ class BreadcrumbService extends Component
 
             // otherwise, we're not dealing with an element
             } else {
-                // we're out of options. build the title from the url segment
+                // we're out of options. build the title from the URL segment
                 // cleanup any unwanted characters
                 $title = str_replace(array('-', '_'), ' ', $segment);
             }
 
-            // output new array... set title and build url
+            // output new array... set title and build URL
             $output[] = array('title' => $title, 'url' => $baseUrl . $path);
         }
 
@@ -114,7 +114,7 @@ class BreadcrumbService extends Component
             $breadcrumbArray[$key]['title'] = $lastSegmentTitle;
         }
 
-        // skip url segment
+        // skip URL segment
         if ($skipUrlSegment) {
             $index = $skipUrlSegment - 1;
             unset($breadcrumbArray[$index]);
