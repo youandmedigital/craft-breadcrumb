@@ -104,12 +104,6 @@ class BreadcrumbService extends Component
             $val['position'] = $defaultPosition++;
         }
 
-        // skip url segment
-        if ($skipUrlSegment) {
-            $index = $skipUrlSegment - 1;
-            unset($breadcrumbArray[$index]);
-        }
-
         // last segment title
         if ($lastSegmentTitle) {
             // move internal pointer to the end of the array
@@ -118,6 +112,12 @@ class BreadcrumbService extends Component
             $key = key($breadcrumbArray);
             // set title with new value
             $breadcrumbArray[$key]['title'] = $lastSegmentTitle;
+        }
+
+        // skip url segment
+        if ($skipUrlSegment) {
+            $index = $skipUrlSegment - 1;
+            unset($breadcrumbArray[$index]);
         }
 
         // limit and return the amount of results
