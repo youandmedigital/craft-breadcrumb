@@ -22,13 +22,15 @@ To install the plugin, search for "Breadcrumb" in the Craft Plugin Store, or ins
 composer require youandmedigital/breadcrumb
 ```
 
-## Breadcrumb Overview
+## Overview
 
 This plugin will generate a simple breadcrumb array that you can style via Twig. It will generate crumb titles from customFieldHandle if set, falling back to the title field. If none of these fields are present, it will generate the crumb title from the slug field.
 
-Breadcrumb works across different element types and is multisite friendly. It can even be used to generate `BreadcrumbList` schema.
+Breadcrumb works across different element types and is multisite friendly. It can even be used to generate `BreadcrumbList` [schema](https://developers.google.com/search/docs/data-types/breadcrumb#definitions).
 
-Example Breadcrumb output:
+## Example
+
+Breadcrumb generates an array like this:
 
 ```array
 array (size=4)
@@ -79,46 +81,39 @@ Use Twig to define the presentation and apply additional logic. Here's a basic e
 </div>
 {% endif %}
 ```
-## Configuring Breadcrumb
+## Settings
 
 Breadcrumb has the following settings available:
 
 **homeTitle**
 `(string, optional, default 'Home')`
-
 Customise the title in the first segment of the breadcrumb.
 
 **customBaseUrl**
 `(string, optional, default '@baseUrl')`
-
 Set a custom base URL for each crumb in the Breadcrumb array. Use a fully qualified URL without the trailing slash.
 
 **skipUrlSegment**
 `(int, optional, default 'null')`
-
 Skip a level or segment from the Breadcrumb array. For example, if you had the following URL `https://mysite.local/posts/categories/example-category` and you entered `3` as the value, it would remove `categories` from the array.
 
 **customFieldHandle**
 `(string, optional, default 'null')`
-
 Specify a custom field handle to generate each crumb title. Requires the setting customFieldHandleEntryId to work.
 
 **customFieldHandleEntryId**
 `(int, optional, default '0')`
-
 Required for customFieldHandle.
 
 **lastSegmentTitle**
 `(string, optional, default 'null')`
-
 Customise the last crumb title in the Breadcrumb array. Useful when using custom routing.
 
 **limit**
 `(int, optional, default 'null')`
-
 Limit the amount of crumbs returned in the Breadcrumb array.
 
-Example setting configuration:
+Example setup with settings applied:
 
 ```twig
 {# If entry is empty, try category, tag and finally return null #}
