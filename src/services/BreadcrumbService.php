@@ -82,20 +82,41 @@ class BreadcrumbService extends Component
             // if isElement belongs to element interface...
             if ($isElement instanceof \craft\base\ElementInterface) {
 
-                // if custom fields are set in settings...
-                if ($hasCustomFieldSetting) {
-                    // set title to customFieldHandle if it returns a value, otherwise fallback to element title
-                    $title = $isElement->$customFieldHandle ? $isElement->$customFieldHandle : $isElement->title;
-                // otherwise just use the title
-                } else {
-                    $title = $isElement->title;
+                // check if isElement has a traditional title
+                if (
+                    $isElement->hasTitles()
+                ) {
+
+                    // check if hasCustomFieldSetting returns true
+                    if ($hasCustomFieldSetting) {
+                        // set title to customFieldHandle if it returns a value, otherwise fallback to element title
+                        $title = $isElement->$customFieldHandle ? $isElement->$customFieldHandle : $isElement->title;
+                    }
+                    // otherwise use the title field
+                    else {
+                        $title = $isElement->title;
+                    }
+
+                }
+                // if isElement has no title
+                else {
+
+                    // check if hasCustomFieldSetting returns true
+                    if ($hasCustomFieldSetting) {
+                        // set title to customFieldHandle if it returns a value, otherwise fallback to URL segment
+                        $title = $isElement->$customFieldHandle ? $isElement->$customFieldHandle : $generatedTitle;
+                    }
+                    // otherwise use the URL segment
+                    else {
+                        $title = $generatedTitle;
+                    }
+
                 }
 
             }
             // otherwise, we're not dealing with an element
             else {
                 // we're out of options. build the title from the URL segment
-                // cleanup any unwanted characters
                 $title = $generatedTitle;
             }
 
