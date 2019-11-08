@@ -47,6 +47,7 @@ class BreadcrumbService extends Component
         // set defaults
         $defaultPosition = 1;
         $path = '';
+        $title = '';
         $homeArray = array();
         $output = array();
         $hasCustomFieldSetting = false;
