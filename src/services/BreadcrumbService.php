@@ -11,9 +11,6 @@
 namespace youandmedigital\breadcrumb\services;
 
 use youandmedigital\breadcrumb\Breadcrumb;
-use craft\elements\Entry;
-use craft\elements\Category;
-
 use Craft;
 use craft\base\Component;
 
