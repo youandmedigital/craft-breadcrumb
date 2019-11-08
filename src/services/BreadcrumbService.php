@@ -52,6 +52,15 @@ class BreadcrumbService extends Component
         $path = '';
         $homeArray = array();
         $output = array();
+        $hasCustomFieldSetting = false;
+
+        // check if customFieldHandle is being used
+        if (
+            ($customFieldHandleEntryId != 0) &&
+            (!empty($customFieldHandle))
+        ) {
+            $hasCustomFieldSetting = true;
+        }
 
         // set custom baseUrl
         if ($customBaseUrl) {
@@ -64,6 +73,9 @@ class BreadcrumbService extends Component
             // build path from current segment
             $path .= '/' . $segment;
 
+            // generate title from URL segment
+            $generatedTitle = str_replace(array('-', '_'), ' ', $segment);
+
             // check to see if the segment belongs to an element
             $isElement = Craft::$app->elements->getElementByUri(ltrim($path, '/'));
 
@@ -71,10 +83,7 @@ class BreadcrumbService extends Component
             if ($isElement instanceof \craft\base\ElementInterface) {
 
                 // if custom fields are set in settings...
-                if (
-                    ($customFieldHandleEntryId != 0) &&
-                    (!empty($customFieldHandle))
-                ) {
+                if ($hasCustomFieldSetting) {
                     // set title to customFieldHandle if it returns a value, otherwise fallback to element title
                     $title = $isElement->$customFieldHandle ? $isElement->$customFieldHandle : $isElement->title;
                 // otherwise just use the title
@@ -87,7 +96,7 @@ class BreadcrumbService extends Component
             else {
                 // we're out of options. build the title from the URL segment
                 // cleanup any unwanted characters
-                $title = str_replace(array('-', '_'), ' ', $segment);
+                $title = $generatedTitle;
             }
 
             // output new array... set title and build URL
