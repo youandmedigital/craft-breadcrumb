@@ -63,7 +63,9 @@ class BreadcrumbService extends Component
         }
 
         // set custom baseUrl
-        if ($customBaseUrl) {
+        if (
+            $customBaseUrl
+        ) {
             $baseUrl = $customBaseUrl;
         }
 
@@ -80,7 +82,9 @@ class BreadcrumbService extends Component
             $isElement = Craft::$app->elements->getElementByUri(ltrim($path, '/'));
 
             // if isElement belongs to element interface...
-            if ($isElement instanceof \craft\base\ElementInterface) {
+            if (
+                $isElement instanceof \craft\base\ElementInterface
+            ) {
 
                 // check if isElement has a traditional title
                 if (
@@ -88,7 +92,9 @@ class BreadcrumbService extends Component
                 ) {
 
                     // check if hasCustomFieldSetting returns true
-                    if ($hasCustomFieldSetting) {
+                    if (
+                        $hasCustomFieldSetting
+                    ) {
                         // set title to customFieldHandle if it returns a value, otherwise fallback to element title
                         $title = $isElement->$customFieldHandle ? $isElement->$customFieldHandle : $isElement->title;
                     }
@@ -102,7 +108,9 @@ class BreadcrumbService extends Component
                 else {
 
                     // check if hasCustomFieldSetting returns true
-                    if ($hasCustomFieldSetting) {
+                    if (
+                        $hasCustomFieldSetting
+                    ) {
                         // set title to customFieldHandle if it returns a value, otherwise fallback to URL segment
                         $title = $isElement->$customFieldHandle ? $isElement->$customFieldHandle : $generatedTitle;
                     }
@@ -135,7 +143,9 @@ class BreadcrumbService extends Component
         }
 
         // last segment title
-        if ($lastSegmentTitle) {
+        if (
+            $lastSegmentTitle
+        ) {
             // move internal pointer to the end of the array
             end($breadcrumbArray);
             // fetch last key in array...
@@ -145,13 +155,17 @@ class BreadcrumbService extends Component
         }
 
         // skip URL segment
-        if ($skipUrlSegment) {
+        if (
+            $skipUrlSegment
+        ) {
             $index = $skipUrlSegment - 1;
             unset($breadcrumbArray[$index]);
         }
 
         // limit and return the amount of results
-        if ($limit) {
+        if (
+            $limit
+        ) {
             return array_slice($breadcrumbArray, 0, $limit);
         }
 
