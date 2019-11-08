@@ -95,14 +95,20 @@ class BreadcrumbService extends Component
                         // set title to customFieldHandle if it returns a value, otherwise fallback to element title
                         $title = $isElement->$customFieldHandle ? $isElement->$customFieldHandle : $isElement->title;
                     }
-                    // otherwise use the title field
-                    else {
+
+                    // check if hasCustomFieldSetting returns false
+                    if (
+                        !$hasCustomFieldSetting
+                    ) {
                         $title = $isElement->title;
                     }
 
                 }
-                // if isElement has no title
-                else {
+
+                // check if isElement has no title
+                if (
+                    !$isElement->hasTitles()
+                ) {
 
                     // check if hasCustomFieldSetting returns true
                     if (
@@ -111,16 +117,22 @@ class BreadcrumbService extends Component
                         // set title to customFieldHandle if it returns a value, otherwise fallback to URL segment
                         $title = $isElement->$customFieldHandle ? $isElement->$customFieldHandle : $generatedTitle;
                     }
-                    // otherwise use the URL segment
-                    else {
+
+                    // check if hasCustomFieldSetting returns false
+                    if (
+                        !$hasCustomFieldSetting
+                    ) {
                         $title = $generatedTitle;
                     }
 
                 }
 
             }
-            // otherwise, we're not dealing with an element
-            else {
+
+            // if isElement does not belong to element interface...
+            if (
+                !$isElement instanceof \craft\base\ElementInterface
+            ) {
                 // we're out of options. build the title from the URL segment
                 $title = $generatedTitle;
             }
