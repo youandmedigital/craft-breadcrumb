@@ -67,8 +67,8 @@ class BreadcrumbService extends Component
             // check to see if the segment belongs to an element
             $isElement = Craft::$app->elements->getElementByUri(ltrim($path, '/'));
 
-            // if isElement returns true
-            if ($isElement) {
+            // if isElement belongs to element interface...
+            if ($isElement instanceof \craft\base\ElementInterface) {
 
                 // if custom fields are set in settings...
                 if (
@@ -82,8 +82,9 @@ class BreadcrumbService extends Component
                     $title = $isElement->title;
                 }
 
+            }
             // otherwise, we're not dealing with an element
-            } else {
+            else {
                 // we're out of options. build the title from the URL segment
                 // cleanup any unwanted characters
                 $title = str_replace(array('-', '_'), ' ', $segment);

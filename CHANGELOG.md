@@ -9,8 +9,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Fixed
 - Some code inconsistencies
 
+### Changed
+- isElement now uses instanceof to check for the element interface
+
 ### Removed
-- Dead element variable 
+- Dead element variable
 
 ## 1.1.0 - 2019-11-07
 > {warning} Crumb titles are now generated from the following fields in order of priority 1) customFieldHandle, 2) title, 3) URL segment  
