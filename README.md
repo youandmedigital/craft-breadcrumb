@@ -128,7 +128,7 @@ Example setup with settings applied:
         customFieldHandle: 'myCustomField',
         lastSegmentTitle: element.customMenuTitle ?? element.title,
         skipUrlSegment: 2,
-        limit: '3'
+        limit: 3
     }
 %}
 
