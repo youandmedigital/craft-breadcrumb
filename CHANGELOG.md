@@ -6,13 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## 1.1.1 - Unreleased
 ### Added
-- Better check if element has a traditional title
-
-### Fixed
-- Some code inconsistencies
+- Better check if element has a traditional title or not
 
 ### Changed
 - isElement now uses instanceof to check for the element interface
+
+### Fixed
+- Some code inconsistencies
 
 ### Removed
 - Dead element variable
@@ -26,11 +26,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - customFieldHandle setting now applies to all crumbs in the breadcrumb array, not just the last
 - Crumbs are now generated from the customFieldHandle setting which will fallback to title if customFieldHandle setting is empty. If a crumb in the breadcrumb is not an element the crumb title will be generated from the URL segment
 
-### Removed
-- Automatic capitalization of crumb titles that are generated from a URL segment [#6](https://github.com/youandmedigital/craft-breadcrumb/issues/6)
-
 ### Fixed
 - skipUrlSegment now works more consistently
+
+### Removed
+- Automatic capitalization of crumb titles that are generated from a URL segment [#6](https://github.com/youandmedigital/craft-breadcrumb/issues/6)
 
 ## 1.0.4 - 2019-03-15
 ### Added
@@ -42,16 +42,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Simplified null coalescing operators
 
 ## 1.0.3 - 2019-03-06
-### Fixed
-- homeUrl only working for the first URL segment
-- baseUrl not respecting the current site [#4](https://github.com/youandmedigital/craft-breadcrumb/issues/4)
+### Added
+- Added documentationUrl to extra in composer.json to fix documentation link not showing
 
 ### Changed
 - Check for an Entry or Category element when applying a custom title
 - Readme improvements
 
-### Added
-- Added documentationUrl to extra in composer.json to fix documentation link not showing
+### Fixed
+- homeUrl only working for the first URL segment
+- baseUrl not respecting the current site [#4](https://github.com/youandmedigital/craft-breadcrumb/issues/4)
 
 ## 1.0.2 - 2019-02-28
 ### Changed
