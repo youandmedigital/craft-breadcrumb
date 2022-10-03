@@ -1,13 +1,4 @@
 <?php
-/**
- * Breadcrumb plugin for Craft CMS 3.1
- *
- * Generate a simple breadcrumb.
- *
- * @link      https://youandme.digital
- * @copyright Copyright (c) 2019 You & Me Digital
- */
-
 namespace youandmedigital\breadcrumb;
 
 use youandmedigital\breadcrumb\services\BreadcrumbService as BreadcrumbServiceService;
@@ -21,14 +12,6 @@ use craft\web\twig\variables\CraftVariable;
 
 use yii\base\Event;
 
-/**
- *
- * @author    You & Me Digital
- * @package   Breadcrumb
- * @since     1.1.1
- *
- * @property  BreadcrumbServiceService $breadcrumbService
- */
 class Breadcrumb extends Plugin
 {
     // Static Properties
@@ -39,7 +22,7 @@ class Breadcrumb extends Plugin
     // Public Properties
     // =========================================================================
 
-    public $schemaVersion = '1.1.1';
+    public string $schemaVersion = '1.1.1';
 
     // Public Methods
     // =========================================================================

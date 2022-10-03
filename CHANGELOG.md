@@ -1,10 +1,14 @@
 # Breadcrumb Changelog
 
-All notable changes to this project will be documented in this file.
+## 2.0.0 - 2022-10-03
+### Changed
+- Now requires Craft `4.0.0+`
+- Now requires PHP `8.0.2+`
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
+### Removed
+- Dead element variable
 
-## 1.1.1 - Unreleased
+## 1.1.1 - 2019-11-8
 ### Added
 - Better check if element has a traditional title or not
 

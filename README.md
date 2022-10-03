@@ -1,17 +1,17 @@
 <p align="center">
-    <img src="https://github.com/youandmedigital/craft-breadcrumb/blob/master/src/icon.svg" alt="Craft Breadcrumb" width="150"/>
+    <img src="https://github.com/youandmedigital/craft-breadcrumb/blob/craft-4/src/icon.svg" alt="Craft Breadcrumb" width="150"/>
 </p>
 
-# Breadcrumb for Craft 3.1
+# Breadcrumb for Craft CMS
 
 Generate a simple breadcrumb.
 
 ## Requirements
 
-This plugin requires Craft CMS 3.1 or later.
+This plugin requires Craft CMS 4 or later.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/youandmedigital/craft-breadcrumb/master/src/resources/plugin-banner.jpg" alt="Breadcrumb from URL" />
+    <img src="https://raw.githubusercontent.com/youandmedigital/craft-breadcrumb/craft-4/src/resources/plugin-banner.jpg" alt="Breadcrumb from URL" />
 </p>
 
 ## Installation
