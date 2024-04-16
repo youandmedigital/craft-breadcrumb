@@ -8,7 +8,7 @@ Generate a simple breadcrumb.
 
 ## Requirements
 
-This plugin requires Craft CMS 4 or later.
+This plugin requires Craft CMS 5 or later.
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/youandmedigital/craft-breadcrumb/craft-4/src/resources/plugin-banner.jpg" alt="Breadcrumb from URL" />
