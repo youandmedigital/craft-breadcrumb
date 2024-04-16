@@ -1,6 +1,6 @@
 # Breadcrumb Changelog
 
-## Unreleased
+## 3.0.0 - 2024-04-16
 ### Changed
 - Now requires Craft 5 ([#11](https://github.com/youandmedigital/craft-breadcrumb/issues/11))
 

@@ -2,7 +2,7 @@
     "name": "youandmedigital/breadcrumb",
     "description": "Generate a simple breadcrumb",
     "type": "craft-plugin",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "keywords": [
         "craft",
         "cms",
@@ -40,8 +40,8 @@
         "handle": "breadcrumb",
         "hasCpSettings": false,
         "hasCpSection": false,
-        "changelogUrl": "https://raw.githubusercontent.com/youandmedigital/craft-breadcrumb/craft-4/CHANGELOG.md",
-        "documentationUrl": "https://github.com/youandmedigital/craft-breadcrumb/blob/craft-4/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/youandmedigital/craft-breadcrumb/craft-5/CHANGELOG.md",
+        "documentationUrl": "https://github.com/youandmedigital/craft-breadcrumb/blob/craft-5/README.md",
         "components": {
             "breadcrumbService": "youandmedigital\\breadcrumb\\services\\BreadcrumbService"
         },
