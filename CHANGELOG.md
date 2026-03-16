@@ -1,5 +1,20 @@
 # Breadcrumb Changelog
 
+## 3.1.0 - 2026-03-16
+
+### Changed
+- Replaced `Breadcrumb::$plugin` singleton with Craft 5 idiomatic `Plugin::getInstance()`
+- Removed unused imports
+
+### Fixed
+- Fixed fatal error on Craft CMS 5 caused by removed `hasTitles()` method — now checks for a title value directly instead
+- Fixed crash when running in console/CLI context (queue jobs, migrations)
+- Fixed crash when calling `craft.breadcrumb.config()` with no arguments
+- Fixed element lookups returning wrong results on multi-site installs (now passes site ID to `getElementByUri()`)
+- Fixed custom field handle being applied to every element in the breadcrumb chain instead of only the target entry specified by `customFieldHandleEntryId`
+- Fixed custom field access throwing `InvalidFieldException` when the field doesn't exist on an element type
+- Fixed array key gaps after using `skipUrlSegment` (now re-indexes with `array_values()`)
+
 ## 3.0.0 - 2024-04-16
 ### Changed
 - Now requires Craft 5 ([#11](https://github.com/youandmedigital/craft-breadcrumb/issues/11))

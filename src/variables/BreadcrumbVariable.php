@@ -3,8 +3,6 @@ namespace youandmedigital\breadcrumb\variables;
 
 use youandmedigital\breadcrumb\Breadcrumb;
 
-use Craft;
-
 class BreadcrumbVariable
 {
     // Public Methods
@@ -12,6 +10,6 @@ class BreadcrumbVariable
 
     public function config($settings = null)
     {
-        return Breadcrumb::$plugin->breadcrumbService->buildBreadcrumb($settings);
+        return Breadcrumb::getInstance()->breadcrumbService->buildBreadcrumb($settings);
     }
 }

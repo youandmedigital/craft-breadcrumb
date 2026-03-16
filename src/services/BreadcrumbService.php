@@ -1,8 +1,6 @@
 <?php
 namespace youandmedigital\breadcrumb\services;
 
-use youandmedigital\breadcrumb\Breadcrumb;
-
 use Craft;
 use craft\base\Component;
 
@@ -13,6 +11,16 @@ class BreadcrumbService extends Component
 
     public function buildBreadcrumb($settings) : array
     {
+        // bail early if this is a console request
+        if (Craft::$app->getRequest()->getIsConsoleRequest()) {
+            return [];
+        }
+
+        // normalise settings to an array
+        if (!is_array($settings)) {
+            $settings = [];
+        }
+
         // get and set settings
         $homeTitle = $settings['homeTitle'] ?? 'Home';
         $customBaseUrl = $settings['homeUrl'] ?? $settings['customBaseUrl'] ?? null;
@@ -27,6 +35,7 @@ class BreadcrumbService extends Component
 
         // get site baseUrl
         $currentSite = Craft::$app->getSites()->getCurrentSite();
+        $siteId = $currentSite->id;
         $baseUrl = rtrim($currentSite->getBaseUrl(), '/');
 
         // set defaults
@@ -60,38 +69,28 @@ class BreadcrumbService extends Component
             $generatedTitle = str_replace(array('-', '_'), ' ', $segment);
 
             // check to see if the segment belongs to an element
-            $isElement = Craft::$app->elements->getElementByUri(ltrim($path, '/'));
+            $isElement = Craft::$app->elements->getElementByUri(ltrim($path, '/'), $siteId);
 
             // if isElement belongs to element interface...
             if ($isElement instanceof \craft\base\ElementInterface) {
 
-                // check if isElement has a traditional title
-                if ($isElement->hasTitles()) {
-
-                    // check if hasCustomFieldSetting returns true
-                    if ($hasCustomFieldSetting) {
-                        // set title to customFieldHandle if it returns a value, otherwise fallback to element title
-                        $title = $isElement->$customFieldHandle ? $isElement->$customFieldHandle : $isElement->title;
+                // determine custom field value for this element (only if it matches the target entry)
+                $customFieldValue = null;
+                if ($hasCustomFieldSetting && $isElement->id == $customFieldHandleEntryId) {
+                    try {
+                        $customFieldValue = $isElement->getFieldValue($customFieldHandle);
+                    } catch (\Exception $e) {
+                        $customFieldValue = null;
                     }
-                    // otherwise use the title field
-                    else {
-                        $title = $isElement->title;
-                    }
+                }
 
+                // check if isElement has a title
+                if (!empty($isElement->title)) {
+                    $title = !empty($customFieldValue) ? $customFieldValue : $isElement->title;
                 }
                 // if isElement has no title
                 else {
-
-                    // check if hasCustomFieldSetting returns true
-                    if ($hasCustomFieldSetting) {
-                        // set title to customFieldHandle if it returns a value, otherwise fallback to URL segment
-                        $title = $isElement->$customFieldHandle ? $isElement->$customFieldHandle : $generatedTitle;
-                    }
-                    // otherwise use the URL segment
-                    else {
-                        $title = $generatedTitle;
-                    }
-
+                    $title = !empty($customFieldValue) ? $customFieldValue : $generatedTitle;
                 }
 
             }
@@ -129,6 +128,8 @@ class BreadcrumbService extends Component
         if ($skipUrlSegment) {
             $index = $skipUrlSegment - 1;
             unset($breadcrumbArray[$index]);
+            // re-index to avoid gaps in array keys
+            $breadcrumbArray = array_values($breadcrumbArray);
         }
 
         // limit and return the amount of results
