@@ -1,6 +1,6 @@
 # Breadcrumb Changelog
 
-## Unreleased
+## 3.1.1 - 2026-03-18
 
 ### Fixed
 - Added back BreadcrumbService as a component so it be can called in a module or PHP class
