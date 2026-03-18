@@ -1,6 +1,7 @@
 <?php
 namespace youandmedigital\breadcrumb;
 
+use youandmedigital\breadcrumb\services\BreadcrumbService;
 use youandmedigital\breadcrumb\variables\BreadcrumbVariable;
 
 use Craft;
@@ -22,6 +23,11 @@ class Breadcrumb extends Plugin
     public function init()
     {
         parent::init();
+
+        // Register services
+        $this->setComponents([
+            'breadcrumbService' => BreadcrumbService::class,
+        ]);
 
         // Register our variables
         Event::on(
