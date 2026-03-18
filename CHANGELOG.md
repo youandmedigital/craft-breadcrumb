@@ -1,5 +1,10 @@
 # Breadcrumb Changelog
 
+## Unreleased
+
+### Added
+- Add typed getter for breadcrumbService IDE autocompletion
+
 ## 3.1.1 - 2026-03-18
 
 ### Fixed

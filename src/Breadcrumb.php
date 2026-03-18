@@ -10,6 +10,9 @@ use craft\web\twig\variables\CraftVariable;
 
 use yii\base\Event;
 
+/**
+ * @property BreadcrumbService $breadcrumbService
+ */
 class Breadcrumb extends Plugin
 {
     // Public Properties
@@ -19,6 +22,11 @@ class Breadcrumb extends Plugin
 
     // Public Methods
     // =========================================================================
+
+    public function getBreadcrumbService(): BreadcrumbService
+    {
+        return $this->get('breadcrumbService');
+    }
 
     public function init()
     {
