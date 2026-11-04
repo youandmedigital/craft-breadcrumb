@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/youandmedigital/craft-breadcrumb/blob/craft-4/src/icon.svg" alt="Craft Breadcrumb" width="150"/>
+    <img src="https://github.com/merladigital/craft-breadcrumb/blob/craft-4/src/icon.svg" alt="Craft Breadcrumb" width="150"/>
 </p>
 
 # Breadcrumb for Craft CMS
@@ -11,7 +11,7 @@ Generate a simple breadcrumb.
 This plugin requires Craft CMS 5 or later.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/youandmedigital/craft-breadcrumb/craft-4/src/resources/plugin-banner.jpg" alt="Breadcrumb from URL" />
+    <img src="https://raw.githubusercontent.com/merladigital/craft-breadcrumb/craft-4/src/resources/plugin-banner.jpg" alt="Breadcrumb from URL" />
 </p>
 
 ## Installation
@@ -160,4 +160,4 @@ Example setup with settings applied:
 
 PR & FR welcome!
 
-Brought to you by [You & Me Digital](https://youandme.digital)
+Brought to you by [Merla Digital](https://merla.digital)

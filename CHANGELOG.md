@@ -1,5 +1,11 @@
 # Breadcrumb Changelog
 
+## 3.1.3 - 2026-11-04
+
+### Changed
+- The repository has moved to [merladigital/craft-breadcrumb](https://github.com/merladigital/craft-breadcrumb)
+- Updated author and copyright details to Merla Digital
+
 ## 3.1.2 - 2026-03-18
 
 ### Added
@@ -27,7 +33,7 @@
 
 ## 3.0.0 - 2024-04-16
 ### Changed
-- Now requires Craft 5 ([#11](https://github.com/youandmedigital/craft-breadcrumb/issues/11))
+- Now requires Craft 5 ([#11](https://github.com/merladigital/craft-breadcrumb/issues/11))
 
 ## 2.0.0 - 2022-10-03
 ### Changed
@@ -63,7 +69,7 @@
 - skipUrlSegment now works more consistently
 
 ### Removed
-- Automatic capitalization of crumb titles that are generated from a URL segment [#6](https://github.com/youandmedigital/craft-breadcrumb/issues/6)
+- Automatic capitalization of crumb titles that are generated from a URL segment [#6](https://github.com/merladigital/craft-breadcrumb/issues/6)
 
 ## 1.0.4 - 2019-03-15
 ### Added
@@ -84,7 +90,7 @@
 
 ### Fixed
 - homeUrl only working for the first URL segment
-- baseUrl not respecting the current site [#4](https://github.com/youandmedigital/craft-breadcrumb/issues/4)
+- baseUrl not respecting the current site [#4](https://github.com/merladigital/craft-breadcrumb/issues/4)
 
 ## 1.0.2 - 2019-02-28
 ### Changed

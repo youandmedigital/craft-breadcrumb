@@ -2,7 +2,7 @@
     "name": "youandmedigital/breadcrumb",
     "description": "Generate a simple breadcrumb",
     "type": "craft-plugin",
-    "version": "3.1.2",
+    "version": "3.1.3",
     "keywords": [
         "craft",
         "cms",
@@ -15,15 +15,15 @@
         "development"
     ],
     "support": {
-        "docs": "https://github.com/youandmedigital/craft-breadcrumb",
-        "issues": "https://github.com/youandmedigital/craft-breadcrumb/issues",
-        "source": "https://github.com/youandmedigital/craft-breadcrumb"
+        "docs": "https://github.com/merladigital/craft-breadcrumb",
+        "issues": "https://github.com/merladigital/craft-breadcrumb/issues",
+        "source": "https://github.com/merladigital/craft-breadcrumb"
     },
     "license": "MIT",
     "authors": [
         {
-            "name": "You & Me Digital",
-            "homepage": "https://youandme.digital"
+            "name": "Merla Digital",
+            "homepage": "https://merla.digital"
         }
     ],
     "require": {
@@ -40,8 +40,8 @@
         "handle": "breadcrumb",
         "hasCpSettings": false,
         "hasCpSection": false,
-        "changelogUrl": "https://raw.githubusercontent.com/youandmedigital/craft-breadcrumb/craft-5/CHANGELOG.md",
-        "documentationUrl": "https://github.com/youandmedigital/craft-breadcrumb/blob/craft-5/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/merladigital/craft-breadcrumb/craft-5/CHANGELOG.md",
+        "documentationUrl": "https://github.com/merladigital/craft-breadcrumb/blob/craft-5/README.md",
         "components": {
             "breadcrumbService": "youandmedigital\\breadcrumb\\services\\BreadcrumbService"
         },
