@@ -2,11 +2,6 @@
 
 ## 3.1.6 - 2026-11-04
 
-### Fixed
-- Corrected package metadata
-
-## 3.1.3 - 2026-11-04
-
 ### Changed
 - The repository has moved to [merladigital/craft-breadcrumb](https://github.com/merladigital/craft-breadcrumb)
 - Updated author and copyright details to Merla Digital
