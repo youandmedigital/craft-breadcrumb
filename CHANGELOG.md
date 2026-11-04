@@ -1,5 +1,10 @@
 # Breadcrumb Changelog
 
+## 3.1.6 - 2026-11-04
+
+### Fixed
+- Corrected package metadata
+
 ## 3.1.3 - 2026-11-04
 
 ### Changed
